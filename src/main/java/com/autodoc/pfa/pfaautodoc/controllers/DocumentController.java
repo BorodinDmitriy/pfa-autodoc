@@ -2,6 +2,7 @@ package com.autodoc.pfa.pfaautodoc.controllers;
 
 import com.autodoc.pfa.pfaautodoc.models.IndividualFileSubstitution;
 import com.autodoc.pfa.pfaautodoc.services.IDocumentService;
+import com.autodoc.pfa.pfaautodoc.utils.ObjectInspector;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -12,15 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Enumeration;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipException;
-import java.util.zip.ZipFile;
+import java.util.List;
 
 @RestController
 @Api(description = "Контроллер для работы с документами")
@@ -42,6 +35,44 @@ public class DocumentController {
     void generateDocumentsForIndividual(HttpServletRequest request,
                                         HttpServletResponse response,
                                         @ApiParam(value = "Данные замены") IndividualFileSubstitution dataToChange) {
+        List<String> substituteFields = ObjectInspector.inspect(IndividualFileSubstitution.class);
+        String customer = ObjectInspector.getValueByField(dataToChange, "customer");
+        System.out.println("Done");
+        /* String filePath = "./src/main/resources/documents/";
 
+        Path file = Paths.get(filePath, "2.docx");
+
+        try {
+            ZipFile zip = new ZipFile(new File(filePath + "2.docx"));
+
+            for (Enumeration e = zip.entries(); e.hasMoreElements(); ) {
+                ZipEntry entry = (ZipEntry) e.nextElement();
+                //Here I need to get the simple name instead the full name with its root
+                System.out.println(new File(entry.getName()).getName());
+            }
+
+        } catch (ZipException e) {
+            e.printStackTrace();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+
+
+        if (Files.exists(file))
+        {
+            response.addHeader("Content-Disposition", "attachment; filename=2.docx");
+            try
+            {
+                Files.copy(file, response.getOutputStream());
+                response.getOutputStream().flush();
+            }
+            catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }*/
+
+        //return Paths.get("").toAbsolutePath().toString();
     }
 }
