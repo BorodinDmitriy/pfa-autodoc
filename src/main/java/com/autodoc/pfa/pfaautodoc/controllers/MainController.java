@@ -1,5 +1,6 @@
 package com.autodoc.pfa.pfaautodoc.controllers;
 
+import com.autodoc.pfa.pfaautodoc.models.IndividualFileSubstitution;
 import com.autodoc.pfa.pfaautodoc.services.IDocumentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,5 +24,11 @@ public class MainController {
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public String mainPage(HttpServletRequest request, Model model) {
         return "index";
+    }
+
+    @RequestMapping(value = "/individual/",method = RequestMethod.GET)
+    public String individualPage(HttpServletRequest request, Model model) {
+        model.addAttribute("individualfilesubstitution", new IndividualFileSubstitution());
+        return "individual";
     }
 }

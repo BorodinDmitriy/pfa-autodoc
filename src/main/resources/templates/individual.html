@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+    <form action="#" th:action="@{/documents/individual/}" th:object="${individualfilesubstitution}" method="POST">
+        <table border="1">
+            <tr>
+                <td><label>Номер договора </label></td>
+                <td><input type="text" th:field="*{dealNumber}"/></td>
+            </tr>
+            <tr>
+                <td><label>Дата договора </label></td>
+                <td><input type="text" th:field="*{dealDate}"/></td>
+            </tr>
+            <tr>
+                <td><label>На основании </label></td>
+                <td><input type="text" th:field="*{basis}"/></td>
+            </tr>
+            <tr>
+                <td><label >ФИО слушателя </label></td>
+                <td><input type="text" th:field="*{listenerCredentials}"/></td>
+            </tr>
+            <tr>
+                <td><label> Дата рождения</label></td>
+                <td><input type="text" th:field="*{dateOfBirth}"/></td>
+            </tr>
+            <tr>
+                <td><label>Серия/номер паспорта </label></td>
+                <td><input type="text" th:field="*{passportData}"/></td>
+            </tr>
+            <tr>
+                <td><label> Дата выдачи/отделение</label></td>
+                <td><input type="text" th:field="*{passportDeliveryData}"/></td>
+            </tr>
+            <tr>
+                <td><label>Адрес регистрации </label></td>
+                <td><input type="text" th:field="*{registrationAddress}"/></td>
+            </tr>
+            <tr>
+                <td><label>Заказчик </label></td>
+                <td><input type="text" th:field="*{customer}"/></td>
+            </tr>
+            <tr>
+                <td><label>По программе </label></td>
+                <td><input type="text" th:field="*{programType}"/></td>
+            </tr>
+            <tr>
+                <td><label>Программа </label></td>
+                <td><input type="text" th:field="*{programName}"/></td>
+            </tr>
+            <tr>
+                <td><label>Длительность </label></td>
+                <td><input type="text" th:field="*{latency}"/></td>
+            </tr>
+            <tr>
+                <td><label> Стоимость</label></td>
+                <td><input type="text" th:field="*{cost}"/></td>
+            </tr>
+
+            <tr>
+                <td><label>Счет </label></td>
+            </tr>
+
+            <tr>
+                <td><label> Счет №</label></td>
+                <td><input type="text" th:field="*{billNumber}"/></td>
+            </tr>
+            <tr>
+                <td><label>Счет от </label></td>
+                <td><input type="text" th:field="*{billDate}"/></td>
+            </tr>
+            <tr>
+                <td><label> Цена/Сумма/Итого</label></td>
+                <td><input type="text" th:field="*{billSum}"/></td>
+            </tr>
+            <tr>
+                <td><label> Цена прописью</label></td>
+                <td><input type="text" th:field="*{billSumWords}"/></td>
+            </tr>
+
+            <tr>
+                <td><label> Акт</label></td>
+            </tr>
+
+            <tr>
+                <td><label>Акт № </label></td>
+                <td><input type="text" th:field="*{actNumber}"/></td>
+            </tr>
+            <tr>
+                <td><label>Акт от </label></td>
+                <td><input type="text" th:field="*{actDate}"/></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit" /></td>
+            </tr>
+        </table>
+</form>
+</body>
+</html>
