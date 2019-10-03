@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.List;
 
 @RestController
@@ -38,6 +41,20 @@ public class DocumentController {
         List<String> substituteFields = ObjectInspector.inspect(IndividualFileSubstitution.class);
         String customer = ObjectInspector.getValueByField(dataToChange, "customer");
         System.out.println("Done");
+
+        File fileToDeliver = iDocumentService.getProcessedFiles(dataToChange, "individual");
+        if (Files.exists(fileToDeliver.toPath()))
+        {
+            response.addHeader("Content-Disposition", "attachment; filename=" + fileToDeliver.getName());
+            try
+            {
+                Files.copy(fileToDeliver.toPath(), response.getOutputStream());
+                response.getOutputStream().flush();
+            }
+            catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
         /* String filePath = "./src/main/resources/documents/";
 
         Path file = Paths.get(filePath, "2.docx");
