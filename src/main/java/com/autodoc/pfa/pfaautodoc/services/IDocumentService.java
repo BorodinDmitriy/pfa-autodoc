@@ -10,6 +10,6 @@ import java.util.zip.ZipFile;
 
 public interface IDocumentService {
     File getProcessedFiles(FileSubstitution fs, String fileType);
-    ArrayList<ZipFile> getInitialTemplates(FileSubstitution fs, String fileType);
+    ArrayList<String> getInitialTemplates(FileSubstitution fs, String fileType);
     void cleanupTempDirectory(String directoryPath);
 }

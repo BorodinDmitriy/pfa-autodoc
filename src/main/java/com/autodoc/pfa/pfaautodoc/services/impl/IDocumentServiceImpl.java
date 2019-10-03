@@ -30,8 +30,8 @@ public class IDocumentServiceImpl  implements IDocumentService {
     }
 
     @Override
-    public ArrayList<ZipFile> getInitialTemplates(FileSubstitution fs, String fileType) {
-        ArrayList<ZipFile> resultList = new ArrayList<>();
+    public ArrayList<String> getInitialTemplates(FileSubstitution fs, String fileType) {
+        ArrayList<String> resultList = new ArrayList<>();
         List<FileTemplate> fileTemplatesData = iFileTemplateDAO.getFileTemplates(fileType);
         if ((fileTemplatesData != null) && (fs.getFilesToModify().size() != 0)) {
             for (FileTemplate ft : fileTemplatesData) {
@@ -50,7 +50,7 @@ public class IDocumentServiceImpl  implements IDocumentService {
                             templateCopy.createNewFile();
 
                             fileProcessor.copyFile(initialTemplate,templateCopy);
-                            resultList.add(new ZipFile(templateCopy));
+                            resultList.add(workingCopyPath);
 
                         }  catch (Exception ex) {
                             ex.printStackTrace();
@@ -72,22 +72,24 @@ public class IDocumentServiceImpl  implements IDocumentService {
 
     @Override
     public File getProcessedFiles(FileSubstitution fs, String fileType) {
-        ArrayList<ZipFile> templates = getInitialTemplates(fs, fileType);
+        ArrayList<String> templates = getInitialTemplates(fs, fileType);
+
+        // составление конечного архива с документами
         if ((templates != null) && (templates.size() > 0)) {
-            String filePath = Paths.get(templates.get(0).getName()).toString();
+            String filePath = templates.get(0);
             String zipFilePath = filePath.substring(0,filePath.lastIndexOf("/")) + "/" + fs.getDealNumber() + ".zip";
 
             try {
                 File resultFile = new File(zipFilePath);
                 ZipOutputStream out = new ZipOutputStream(new FileOutputStream(resultFile));
-                for (ZipFile zf : templates) {
-                    String zipEntryName = zf.getName();
+                for (String zf : templates) {
+                    String zipEntryName = zf;
                     String zipEntryPath = zipEntryName.substring(zipEntryName.lastIndexOf("/"),zipEntryName.length());
                     ZipEntry e = new ZipEntry(zipEntryPath);
                     out.putNextEntry(e);
 
                     // TODO: rewrite this using method copyToFile
-                    File fileToCopy = new File(zf.getName());
+                    File fileToCopy = new File(zf);
                     FileInputStream fin = new FileInputStream(fileToCopy);
                     byte[] b = new byte[512];
                     int len = 0;
