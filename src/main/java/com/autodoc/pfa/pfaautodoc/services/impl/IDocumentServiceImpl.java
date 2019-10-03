@@ -74,6 +74,16 @@ public class IDocumentServiceImpl  implements IDocumentService {
     public File getProcessedFiles(FileSubstitution fs, String fileType) {
         ArrayList<String> templates = getInitialTemplates(fs, fileType);
 
+        if (fs.getNeedsConversionToPdf()) {
+            ArrayList<String> pdfs = new ArrayList<>();
+            for (String template : templates) {
+                String pdfPath = template.substring(0,template.lastIndexOf(".")) + ".pdf";
+                //fileProcessor.createPDF(template, pdfPath);
+                fileProcessor.convertToPDF(template,pdfPath);
+                pdfs.add(pdfPath);
+            }
+            templates = pdfs;
+        }
         // составление конечного архива с документами
         if ((templates != null) && (templates.size() > 0)) {
             String filePath = templates.get(0);

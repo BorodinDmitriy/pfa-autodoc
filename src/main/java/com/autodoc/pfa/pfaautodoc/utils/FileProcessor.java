@@ -1,8 +1,10 @@
 package com.autodoc.pfa.pfaautodoc.utils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.docx4j.Docx4J;
+import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
+
+import java.io.*;
 
 public class FileProcessor {
 
@@ -30,6 +32,27 @@ public class FileProcessor {
             if (fos != null) fos.close();
         }
     }
+
+    public void convertToPDF(String docPath, String pdfPath) {
+        try {
+            InputStream is = new FileInputStream(
+                    new File(docPath));
+            WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage
+                    .load(is);
+            OutputStream out = new FileOutputStream(new File(pdfPath));
+            Docx4J.toPDF(wordMLPackage, out);
+            System.out.println("Done");
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+
+    }
+
 
     public boolean deleteDirectory(File dir) {
         if (dir.isDirectory()) {
