@@ -13,3 +13,5 @@ lib
 #vscode
 .DS_Store
 .mvn
+
+src/main/resources/documents/
