@@ -1,5 +1,8 @@
 package com.autodoc.pfa.pfaautodoc.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class FileSubstitution {
     private String dealNumber;
     private String dealDate;
@@ -17,6 +20,7 @@ public abstract class FileSubstitution {
     private String actNumber;
     private String actDate;
     private String stampAndSign;
+    private ArrayList<String> filesToModify;
     private Boolean needsStampAndSign;
     private Boolean needsConversionToPdf;
 
@@ -162,5 +166,13 @@ public abstract class FileSubstitution {
 
     public void setNeedsConversionToPdf(Boolean needsConversionToPdf) {
         this.needsConversionToPdf = needsConversionToPdf;
+    }
+
+    public List<String> getFilesToModify() {
+        return filesToModify;
+    }
+
+    public void setFilesToModify(ArrayList<String> filesToModify) {
+        this.filesToModify = filesToModify;
     }
 }

@@ -30,30 +30,36 @@ public class IDocumentServiceImpl  implements IDocumentService {
     }
 
     @Override
-    public ArrayList<ZipFile> getInitialTemplates(String fileType) {
+    public ArrayList<ZipFile> getInitialTemplates(FileSubstitution fs, String fileType) {
         ArrayList<ZipFile> resultList = new ArrayList<>();
         List<FileTemplate> fileTemplatesData = iFileTemplateDAO.getFileTemplates(fileType);
-        if (fileTemplatesData != null) {
+        if ((fileTemplatesData != null) && (fs.getFilesToModify().size() != 0)) {
             for (FileTemplate ft : fileTemplatesData) {
-                String path = ft.getPath() + ft.getName();
-                String workingDirectoryPath = ft.getPath() + "processed/";
-                String workingCopyPath = workingDirectoryPath + ft.getName();
-                try {
-                    File initialTemplate = new File(path);
+                for (String checker : fs.getFilesToModify()) {
+                    if (ft.getName().contains(checker + "_")) {
+                        String path = ft.getPath() + ft.getName();
+                        String workingDirectoryPath = ft.getPath() + "processed/";
+                        String workingCopyPath = workingDirectoryPath + ft.getName();
+                        try {
+                            File initialTemplate = new File(path);
 
-                    File workingDirectory = new File(workingDirectoryPath);
-                    workingDirectory.mkdir();
+                            File workingDirectory = new File(workingDirectoryPath);
+                            workingDirectory.mkdir();
 
-                    File templateCopy = new File(workingCopyPath);
-                    templateCopy.createNewFile();
+                            File templateCopy = new File(workingCopyPath);
+                            templateCopy.createNewFile();
 
-                    fileProcessor.copyFile(initialTemplate,templateCopy);
-                    resultList.add(new ZipFile(templateCopy));
+                            fileProcessor.copyFile(initialTemplate,templateCopy);
+                            resultList.add(new ZipFile(templateCopy));
 
-                }  catch (Exception ex) {
-                    ex.printStackTrace();
-                    resultList = null;
+                        }  catch (Exception ex) {
+                            ex.printStackTrace();
+                            resultList = null;
+                        }
+                        break;
+                    }
                 }
+
             }
         }
         return resultList;
@@ -61,7 +67,7 @@ public class IDocumentServiceImpl  implements IDocumentService {
 
     @Override
     public File getProcessedFiles(FileSubstitution fs, String fileType) {
-        ArrayList<ZipFile> templates = getInitialTemplates(fileType);
+        ArrayList<ZipFile> templates = getInitialTemplates(fs, fileType);
         if ((templates != null) && (templates.size() > 0)) {
             String filePath = Paths.get(templates.get(0).getName()).toString();
             String zipFilePath = filePath.substring(0,filePath.lastIndexOf("/")) + "/" + fs.getDealNumber() + ".zip";

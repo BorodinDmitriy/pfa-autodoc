@@ -15,6 +15,30 @@
             <column name="type" value="individual"/>
             <column name="path" value="./src/main/resources/documents/individuals/"/>
         </insert>
+        <insert tableName="files">
+            <column name="id" value="2"/>
+            <column name="name" value="2_Schet_s_fiz_litsom.docx"/>
+            <column name="type" value="individual"/>
+            <column name="path" value="./src/main/resources/documents/individuals/"/>
+        </insert>
+        <insert tableName="files">
+            <column name="id" value="3"/>
+            <column name="name" value="3_Akt.docx"/>
+            <column name="type" value="individual"/>
+            <column name="path" value="./src/main/resources/documents/individuals/"/>
+        </insert>
+        <insert tableName="files">
+            <column name="id" value="4"/>
+            <column name="name" value="4_Soglasie_na_obrabotku_dannykh.doc"/>
+            <column name="type" value="individual"/>
+            <column name="path" value="./src/main/resources/documents/individuals/"/>
+        </insert>
+        <insert tableName="files">
+            <column name="id" value="5"/>
+            <column name="name" value="5_Forma_zayavlenia_o_dopuske_k_sdache_sertifikatsionnogo_ekzamena.docx"/>
+            <column name="type" value="individual"/>
+            <column name="path" value="./src/main/resources/documents/individuals/"/>
+        </insert>
 
         <!-- insert substitutes data -->
         <insert tableName="substitutes">

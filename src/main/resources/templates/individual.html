@@ -94,6 +94,24 @@
                 <td><label>Акт от </label></td>
                 <td><input type="text" th:field="*{actDate}"/></td>
             </tr>
+
+            <tr>
+                <td><input type="checkbox" th:field=="*{filesToModify}" value="1"/> Договор</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" th:field=="*{filesToModify}" value="2"/> Счет</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" th:field=="*{filesToModify}" value="3"/> Акт</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" th:field=="*{filesToModify}" value="4"/> Согласие</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" th:field=="*{filesToModify}" value="5"/> Форма заявления о допуске</td>
+            </tr>
+
+
             <tr>
                 <td><input type="submit" value="Submit" /></td>
             </tr>
