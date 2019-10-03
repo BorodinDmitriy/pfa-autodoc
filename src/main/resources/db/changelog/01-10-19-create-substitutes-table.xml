@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="dmitrii_borodin" id="create_substitutes_table">
+        <createTable tableName="substitutes">
+            <column name="id" type="int"/>
+            <column name="name" type="nvarchar(255)"/>
+            <column name="type" type="nvarchar(255)"/>
+            <!--types: individual, legal, complex -->
+        </createTable>
+
+        <addAutoIncrement columnDataType="int"
+                          columnName="id"
+                          incrementBy="1"
+                          tableName="substitutes"/>
+
+        <addUniqueConstraint columnNames="id"
+                             constraintName="uniqueSubstitute"
+                             tableName="substitutes"/>
+        <rollback>
+            <dropTable tableName="substitutes"/>
+            <dropUniqueConstraint constraintName="uniqueSubstitute"
+                                  tableName="substitutes"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

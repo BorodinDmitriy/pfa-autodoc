@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="dmitrii_borodin" id="insert_original_content">
+
+        <!-- insert files data -->
+        <insert tableName="files">
+            <column name="id" value="1"/>
+            <column name="name" value="1_Dogovor_s_fiz_litsom.docx"/>
+            <column name="type" value="individual"/>
+            <column name="path" value="./src/main/resources/documents/individuals/"/>
+        </insert>
+
+        <!-- insert substitutes data -->
+        <insert tableName="substitutes">
+            <column name="id" value="1"/>
+            <column name="name" value="%DEAL_NUMBER%"/>
+            <column name="type" value="complex"/>
+        </insert>
+
+        <insert tableName="substitutes">
+            <column name="id" value="2"/>
+            <column name="name" value="%DEAL_DATE%"/>
+            <column name="type" value="complex"/>
+        </insert>
+
+        <insert tableName="substitutes">
+            <column name="id" value="3"/>
+            <column name="name" value="%BASIS%"/>
+            <column name="type" value="complex"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="4"/>
+            <column name="name" value="%LISTENER_CRED%"/>
+            <column name="type" value="complex"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="5"/>
+            <column name="name" value="%DATE_OF_BIRTH%"/>
+            <column name="type" value="individual"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="6"/>
+            <column name="name" value="%PASS_SER_NUM%"/>
+            <column name="type" value="individual"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="7"/>
+            <column name="name" value="%PASS_DEL_DATA%"/>
+            <column name="type" value="individual"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="8"/>
+            <column name="name" value="%REG_ADDRESS%"/>
+            <column name="type" value="individual"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="9"/>
+            <column name="name" value="%CUSTOMER%"/>
+            <column name="type" value="individual"/>
+        </insert>
+
+        <insert tableName="substitutes">
+            <column name="id" value="10"/>
+            <column name="name" value="%PROGRAM_TYPE%"/>
+            <column name="type" value="complex"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="11"/>
+            <column name="name" value="%PROGRAM_NAME%"/>
+            <column name="type" value="complex"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="12"/>
+            <column name="name" value="%LATENCY%"/>
+            <column name="type" value="complex"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="13"/>
+            <column name="name" value="%COST%"/>
+            <column name="type" value="complex"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="14"/>
+            <column name="name" value="%BILL_DATE%"/>
+            <column name="type" value="complex"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="15"/>
+            <column name="name" value="%BILL_SUM%"/>
+            <column name="type" value="complex"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="16"/>
+            <column name="name" value="%BILL_SUM_WORDS%"/>
+            <column name="type" value="complex"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="17"/>
+            <column name="name" value="%ACT_DATE%"/>
+            <column name="type" value="complex"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="18"/>
+            <column name="name" value="%ORG_NAME%"/>
+            <column name="type" value="legal"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="19"/>
+            <column name="name" value="%IN_PERSON_OF%"/>
+            <column name="type" value="legal"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="20"/>
+            <column name="name" value="%HEAD_CRED%"/>
+            <column name="type" value="legal"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="21"/>
+            <column name="name" value="%BASED_ON%"/>
+            <column name="type" value="legal"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="22"/>
+            <column name="name" value="%FACT_ADDRESS%"/>
+            <column name="type" value="legal"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="23"/>
+            <column name="name" value="%LEGAL_ADDRESS%"/>
+            <column name="type" value="legal"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="24"/>
+            <column name="name" value="%MAIL_ADDRESS%"/>
+            <column name="type" value="legal"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="25"/>
+            <column name="name" value="%TAXPAYER_ID%"/>
+            <column name="type" value="legal"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="26"/>
+            <column name="name" value="%CODE_OF_REASON%"/>
+            <column name="type" value="legal"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="27"/>
+            <column name="name" value="%STATE_REG_NUM%"/>
+            <column name="type" value="legal"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="28"/>
+            <column name="name" value="%BANK%"/>
+            <column name="type" value="legal"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="29"/>
+            <column name="name" value="%BANK_ACCOUNT%"/>
+            <column name="type" value="legal"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="30"/>
+            <column name="name" value="%CORREL_ACCOUNT%"/>
+            <column name="type" value="legal"/>
+        </insert>
+
+        <insert tableName="substitutes">
+            <column name="id" value="31"/>
+            <column name="name" value="%BANK_ID%"/>
+            <column name="type" value="legal"/>
+        </insert>
+
+        <insert tableName="substitutes">
+            <column name="id" value="32"/>
+            <column name="name" value="%LISTENER_CRED_ROD_PAD%"/>
+            <column name="type" value="complex"/>
+        </insert>
+
+        <insert tableName="substitutes">
+            <column name="id" value="33"/>
+            <column name="name" value=""/>
+            <column name="type" value="legal"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

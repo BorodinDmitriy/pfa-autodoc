@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="dmitrii_borodin" id="create_files_table">
+        <createTable tableName="files">
+            <column name="id" type="int"/>
+            <column name="name" type="nvarchar(255)"/>
+            <column name="type" type="nvarchar(255)"/>
+            <!--types: individual, legal -->
+            <column name="path" type="text"/>
+        </createTable>
+
+        <addAutoIncrement columnDataType="int"
+                          columnName="id"
+                          incrementBy="1"
+                          tableName="files"/>
+
+        <addUniqueConstraint columnNames="id"
+                             constraintName="uniqueFile"
+                             tableName="files"/>
+        <rollback>
+            <dropTable tableName="files"/>
+            <dropUniqueConstraint constraintName="uniqueFile"
+                                  tableName="files"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
