@@ -43,13 +43,15 @@ public class DocumentController {
         System.out.println("Done");
 
         File fileToDeliver = iDocumentService.getProcessedFiles(dataToChange, "individual");
+        String tempPath = fileToDeliver.toPath().toString();
+        String tempDirectory = tempPath.substring(0,tempPath.lastIndexOf('/'));
         if ((fileToDeliver != null) && (Files.exists(fileToDeliver.toPath())))
         {
             response.addHeader("Content-Disposition", "attachment; filename=" + fileToDeliver.getName());
             try
             {
                 Files.copy(fileToDeliver.toPath(), response.getOutputStream());
-                //iDocumentService.cleanupTempDirectory()
+                iDocumentService.cleanupTempDirectory(tempDirectory);
                 response.getOutputStream().flush();
             }
             catch (IOException ex) {

@@ -66,6 +66,11 @@ public class IDocumentServiceImpl  implements IDocumentService {
     }
 
     @Override
+    public void cleanupTempDirectory(String directoryPath) {
+        fileProcessor.deleteDirectory(new File(directoryPath));
+    }
+
+    @Override
     public File getProcessedFiles(FileSubstitution fs, String fileType) {
         ArrayList<ZipFile> templates = getInitialTemplates(fs, fileType);
         if ((templates != null) && (templates.size() > 0)) {
