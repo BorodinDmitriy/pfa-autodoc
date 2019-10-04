@@ -74,6 +74,7 @@ public class IDocumentServiceImpl  implements IDocumentService {
     public File getProcessedFiles(FileSubstitution fs, String fileType) {
         ArrayList<String> templates = getInitialTemplates(fs, fileType);
 
+        // преобразование в *.pdf при необходимости
         if (fs.getNeedsConversionToPdf()) {
             ArrayList<String> pdfs = new ArrayList<>();
             for (String template : templates) {
@@ -84,6 +85,11 @@ public class IDocumentServiceImpl  implements IDocumentService {
             }
             templates = pdfs;
         }
+
+        // удаление ## EvaluationUseOnly ##
+
+        fileProcessor.readPDF(templates.get(0));
+
         // составление конечного архива с документами
         if ((templates != null) && (templates.size() > 0)) {
             String filePath = templates.get(0);

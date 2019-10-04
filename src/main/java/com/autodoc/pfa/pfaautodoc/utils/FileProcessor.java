@@ -1,5 +1,8 @@
 package com.autodoc.pfa.pfaautodoc.utils;
 
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
+import org.apache.pdfbox.text.PDFTextStripperByArea;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.docx4j.Docx4J;
 import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
@@ -49,8 +52,34 @@ public class FileProcessor {
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
+    }
 
+    public void readPDF(String pdfPath) {
+        try (PDDocument document = PDDocument.load(new File(pdfPath))) {
 
+            document.getClass();
+
+            if (!document.isEncrypted()) {
+
+                PDFTextStripperByArea stripper = new PDFTextStripperByArea();
+                stripper.setSortByPosition(true);
+
+                PDFTextStripper tStripper = new PDFTextStripper();
+
+                String pdfFileInText = tStripper.getText(document);
+                //System.out.println("Text:" + st);
+
+                // split by whitespace
+                String lines[] = pdfFileInText.split("\\n");
+                for (String line : lines) {
+                    System.out.println(line);
+                }
+
+            }
+
+        } catch (Exception ex) {
+
+        }
     }
 
 
