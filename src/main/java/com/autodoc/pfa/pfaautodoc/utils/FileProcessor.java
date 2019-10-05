@@ -138,69 +138,7 @@ public class FileProcessor {
                 }
             }
             zos.close();
-            /*ZipFile zipFile = new ZipFile(filePath);
-            final ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(newFilePath));
-            for(Enumeration e = zipFile.entries(); e.hasMoreElements(); ) {
-                ZipEntry entryIn = (ZipEntry) e.nextElement();
-                if (!entryIn.getName().equalsIgnoreCase("word/document.xml")) {
-                    ZipEntry locZE = new ZipEntry(entryIn.getName());
-                    zos.putNextEntry(locZE);
-                    InputStream is = zipFile.getInputStream(entryIn);
-                    byte[] buf = new byte[1024];
-                    int len;
-                    while((len = is.read(buf)) > 0) {
-                        zos.write(buf, 0, (len < buf.length) ? len : buf.length);
-                    }
-                }
-                else{
-                    ZipEntry locZE = new ZipEntry(entryIn.getName());
-                    zos.putNextEntry(locZE);
-                    InputStream is = zipFile.getInputStream(entryIn);
-                    byte[] buf = new byte[1024];
-                    int len;
-                    while((len = is.read(buf)) > 0) {
-                        String s = new String(buf);
-                        for (Map.Entry<String,String> mapEntry : substitutionData.entrySet())
-                            buf = s.replaceAll(mapEntry.getKey(),mapEntry.getValue()).getBytes();
-                        zos.write(buf, 0,  (len < buf.length) ? len : buf.length);
-                    }
-                }
-                zos.closeEntry();
-            }
-            zos.close();*/
-            /*ZipFile zip = new ZipFile(new File(filePath));
 
-            for (Enumeration e = zip.entries(); e.hasMoreElements(); ) {
-                ZipEntry entry = (ZipEntry) e.nextElement();
-                File fileToBeModified = new File(entry.getName());
-                String entryName = fileToBeModified.getName();
-                if (entryName.equals("document.xml")) {
-                    String oldContent = "";
-                    BufferedReader reader = null;
-                    FileWriter writer = null;
-
-                    reader = new BufferedReader(new FileReader(fileToBeModified));
-
-                    // Reading all the lines of input text file into oldContent
-                    String line = reader.readLine();
-                    while (line != null) {
-                        oldContent = oldContent + line + System.lineSeparator();
-                        line = reader.readLine();
-                    }
-
-                    // Replacing oldString with newString in the oldContent
-                    String newContent = oldContent;
-                    for (Map.Entry<String,String> mapEntry : substitutionData.entrySet())
-                        newContent = newContent.replaceAll(mapEntry.getKey(),mapEntry.getValue());
-
-                    // Rewriting the input text file with newContent
-                    writer = new FileWriter(fileToBeModified);
-                    writer.write(newContent);
-
-                    reader.close();
-                    writer.close();
-                }
-            }*/
             return newFilePath;
 
         } catch (ZipException e) {
