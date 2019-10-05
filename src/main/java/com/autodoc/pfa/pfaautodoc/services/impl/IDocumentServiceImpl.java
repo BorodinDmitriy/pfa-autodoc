@@ -119,7 +119,7 @@ public class IDocumentServiceImpl  implements IDocumentService {
             ArrayList<String> parsed_templates = new ArrayList<>();
             // замена полученных шаблонов на данные с формы
             for (String zf : templates) {
-                parsed_templates.add(fileProcessor.modifyZipFile(zf, substitutionMap));
+                parsed_templates.add(fileProcessor.modifyDocx(zf, substitutionMap));
             }
             templates = parsed_templates;
 

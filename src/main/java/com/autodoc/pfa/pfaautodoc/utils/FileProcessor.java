@@ -4,18 +4,23 @@ import org.apache.commons.io.IOUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.pdfbox.text.PDFTextStripperByArea;
+import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
+import org.apache.poi.xwpf.usermodel.ParagraphAlignment;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFParagraph;
+import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.docx4j.Docx4J;
 import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
+import org.docx4j.wml.ContentAccessor;
+import org.docx4j.wml.Text;
 
+import javax.xml.bind.JAXBElement;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.zip.*;
 
 public class FileProcessor {
@@ -149,6 +154,45 @@ public class FileProcessor {
             e.printStackTrace();
             return filePath;
         }
+    }
+
+    public List<Object> getAllElementFromObject(Object obj, Class<?> toSearch) {
+        List<Object> result = new ArrayList<Object>();
+        if (obj instanceof JAXBElement)
+            obj = ((JAXBElement<?>) obj).getValue();
+
+        if (obj.getClass().equals(toSearch))
+            result.add(obj);
+        else if (obj instanceof ContentAccessor) {
+            List<?> children = ((ContentAccessor) obj).getContent();
+            for (Object child : children) {
+                result.addAll(getAllElementFromObject(child, toSearch));
+            }
+
+        }
+        return result;
+    }
+
+    public String modifyDocx(String pathToDocx, HashMap<String,String> substitutionData) {
+        String newPathToDocx = pathToDocx.substring(0,pathToDocx.lastIndexOf('/') + 1) +
+                "_" + pathToDocx.substring(pathToDocx.lastIndexOf('/') + 1);
+
+
+        try {
+            // TODO: templates must be prepared as ${VAR_NAME_FROM_DATABASE} and the whole thing must be inside <w:t></w:t> tags
+            WordprocessingMLPackage template = WordprocessingMLPackage
+                    .load(new FileInputStream(new File(pathToDocx)));
+            List<Object> texts = getAllElementFromObject(
+                    template.getMainDocumentPart(), Text.class);
+
+            template.getMainDocumentPart().variableReplace(substitutionData);
+            template.save(new java.io.File(newPathToDocx) );
+            return newPathToDocx;
+        } catch (Exception ex) {
+
+        }
+
+        return pathToDocx;
     }
 
     public boolean deleteDirectory(File dir) {
