@@ -25,7 +25,20 @@ public class ObjectInspector {
             String result = (String) f.get(o);
             return result;
         } catch (NoSuchFieldException ex) {
-            return null;
+            try {
+                Class<?> d = o.getClass().getSuperclass();
+                Field m = d.getDeclaredField(fieldName);
+                m.setAccessible(true);
+
+                String result = (String) m.get(o);
+                return result;
+            } catch (NoSuchFieldException e) {
+                return null;
+            } catch (IllegalAccessException e) {
+                return null;
+            }
+
+
         } catch (IllegalAccessException e) {
             return null;
         }

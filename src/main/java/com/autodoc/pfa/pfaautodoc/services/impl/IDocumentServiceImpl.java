@@ -1,10 +1,13 @@
 package com.autodoc.pfa.pfaautodoc.services.impl;
 
 import com.autodoc.pfa.pfaautodoc.dao.IFileTemplateDAO;
+import com.autodoc.pfa.pfaautodoc.dao.ISubstitutionDAO;
 import com.autodoc.pfa.pfaautodoc.models.FileSubstitution;
 import com.autodoc.pfa.pfaautodoc.models.FileTemplate;
+import com.autodoc.pfa.pfaautodoc.models.IndividualFileSubstitution;
 import com.autodoc.pfa.pfaautodoc.services.IDocumentService;
 import com.autodoc.pfa.pfaautodoc.utils.FileProcessor;
+import com.autodoc.pfa.pfaautodoc.utils.ObjectInspector;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +15,7 @@ import javax.transaction.Transactional;
 import java.io.*;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.zip.*;
 
@@ -20,13 +24,17 @@ import java.util.zip.*;
 public class IDocumentServiceImpl  implements IDocumentService {
 
     private IFileTemplateDAO iFileTemplateDAO;
+    private ISubstitutionDAO iSubstitutionDAO;
     private FileProcessor fileProcessor;
+    private ObjectInspector objectInspector;
 
     @Autowired
-    public IDocumentServiceImpl(IFileTemplateDAO iFileTemplateDAO) {
+    public IDocumentServiceImpl(IFileTemplateDAO iFileTemplateDAO,ISubstitutionDAO iSubstitutionDAO) {
 
         this.iFileTemplateDAO = iFileTemplateDAO;
+        this.iSubstitutionDAO = iSubstitutionDAO;
         this.fileProcessor = new FileProcessor();
+        this.objectInspector = new ObjectInspector();
     }
 
     @Override
@@ -71,8 +79,42 @@ public class IDocumentServiceImpl  implements IDocumentService {
     }
 
     @Override
+    public HashMap<String, String> getSubstitutionData(FileSubstitution fs, String fileType) {
+        HashMap<String,String> resultMap = new HashMap<>();
+        List<String> templatesToSubstitute = null;
+        List<String> dataFromClientFields = new ArrayList<>();
+
+        templatesToSubstitute = iSubstitutionDAO.getSubstitutionsForFileType(fileType);
+        dataFromClientFields.addAll(ObjectInspector.inspect(FileSubstitution.class));
+        dataFromClientFields.addAll(ObjectInspector.inspect(IndividualFileSubstitution.class));
+        if ((templatesToSubstitute != null) && (dataFromClientFields.size() > 0) ) {
+            for (int i = 0; i < templatesToSubstitute.size(); i++) {
+                String templateCopy = templatesToSubstitute.get(i);
+                templateCopy = templateCopy.replaceAll("[%_]","");
+                templateCopy = templateCopy.toLowerCase();
+                for (int j = 0; j < dataFromClientFields.size(); j++) {
+                    String dataFieldNameCopy = dataFromClientFields.get(j);
+                    dataFieldNameCopy = dataFieldNameCopy.toLowerCase();
+                    if (templateCopy.equals(dataFieldNameCopy)) {
+                        resultMap.put(templatesToSubstitute.get(i),
+                                ObjectInspector.getValueByField(fs, dataFromClientFields.get(j)));
+                    }
+                }
+            }
+        }
+        return resultMap;
+    }
+
+    @Override
     public File getProcessedFiles(FileSubstitution fs, String fileType) {
         ArrayList<String> templates = getInitialTemplates(fs, fileType);
+
+        // получение данных о заменяемых шаблонах - что на что заменить
+        HashMap<String,String> substitutionMap = getSubstitutionData(fs,fileType);
+        if (substitutionMap.containsKey("%DEAL_NUMBER%")) {
+            substitutionMap.put("%DEAL_NUMBER_PTS%",
+                    substitutionMap.get("%DEAL_NUMBER%").replaceAll("-","."));
+        }
 
         // преобразование в *.pdf при необходимости
         if (fs.getNeedsConversionToPdf()) {

@@ -2,21 +2,11 @@ package com.autodoc.pfa.pfaautodoc.models;
 
 public class IndividualFileSubstitution extends FileSubstitution {
 
-    private String listenerCredentials;
     private String dateOfBirth;
-    private String passportData;
-    private String passportDeliveryData;
-    private String registrationAddress;
+    private String passSerNum;
+    private String passDelData;
+    private String regAddress;
     private String customer;
-
-
-    public String getListenerCredentials() {
-        return listenerCredentials;
-    }
-
-    public void setListenerCredentials(String listenerCredentials) {
-        this.listenerCredentials = listenerCredentials;
-    }
 
     public String getDateOfBirth() {
         return dateOfBirth;
@@ -26,28 +16,28 @@ public class IndividualFileSubstitution extends FileSubstitution {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getPassportData() {
-        return passportData;
+    public String getPassSerNum() {
+        return passSerNum;
     }
 
-    public void setPassportData(String passportData) {
-        this.passportData = passportData;
+    public void setPassSerNum(String passSerNum) {
+        this.passSerNum = passSerNum;
     }
 
-    public String getPassportDeliveryData() {
-        return passportDeliveryData;
+    public String getPassDelData() {
+        return passDelData;
     }
 
-    public void setPassportDeliveryData(String passportDeliveryData) {
-        this.passportDeliveryData = passportDeliveryData;
+    public void setPassDelData(String passDelData) {
+        this.passDelData = passDelData;
     }
 
-    public String getRegistrationAddress() {
-        return registrationAddress;
+    public String getRegAddress() {
+        return regAddress;
     }
 
-    public void setRegistrationAddress(String registrationAddress) {
-        this.registrationAddress = registrationAddress;
+    public void setRegAddress(String regAddress) {
+        this.regAddress = regAddress;
     }
 
     public String getCustomer() {
