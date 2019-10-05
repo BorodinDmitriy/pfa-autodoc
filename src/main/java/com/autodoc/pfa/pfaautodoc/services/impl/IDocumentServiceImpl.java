@@ -130,14 +130,11 @@ public class IDocumentServiceImpl  implements IDocumentService {
                     String pdfPath = template.substring(0,template.lastIndexOf(".")) + ".pdf";
                     //fileProcessor.createPDF(template, pdfPath);
                     fileProcessor.convertToPDF(template,pdfPath);
+                    pdfPath = fileProcessor.modifyPdf(pdfPath);
                     pdfs.add(pdfPath);
                 }
                 templates = pdfs;
             }
-
-            // удаление ## EvaluationUseOnly ##
-
-            fileProcessor.readPDF(templates.get(0));
 
             // составление конечного архива с документами
 

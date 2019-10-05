@@ -1,5 +1,11 @@
 package com.autodoc.pfa.pfaautodoc.utils;
 
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.PdfStamper;
 import org.apache.commons.io.IOUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
@@ -193,6 +199,42 @@ public class FileProcessor {
         }
 
         return pathToDocx;
+    }
+
+    public String modifyPdf(String pathToPdf) {
+        String newPathToPdf = pathToPdf.substring(0,pathToPdf.lastIndexOf('/') + 1) +
+                "_" + pathToPdf.substring(pathToPdf.lastIndexOf('/') + 1);
+
+        try {
+            PdfReader reader = new PdfReader(pathToPdf); // input PDF
+            PdfStamper stamper = new PdfStamper(reader,
+                    new FileOutputStream(newPathToPdf)); // output PDF
+
+            //loop on pages (1-based)
+            for (int i = 1; i <= reader.getNumberOfPages(); i++){
+
+                // get object for writing over the existing content;
+                // you can also use getUnderContent for writing in the bottom layer
+                PdfContentByte over = stamper.getOverContent(i);
+
+                Rectangle rect = new Rectangle(0,0,10,reader.getPageSize(i).getHeight());
+                rect.setBackgroundColor(BaseColor.WHITE);
+
+                over.rectangle(rect);
+                over.stroke();
+            }
+
+            stamper.close();
+
+            return newPathToPdf;
+        } catch (IOException e) {
+            return pathToPdf;
+        } catch (DocumentException e) {
+            return pathToPdf;
+        }
+
+
+
     }
 
     public boolean deleteDirectory(File dir) {
