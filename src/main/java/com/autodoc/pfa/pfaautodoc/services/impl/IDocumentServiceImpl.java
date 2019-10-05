@@ -115,25 +115,32 @@ public class IDocumentServiceImpl  implements IDocumentService {
             substitutionMap.put("%DEAL_NUMBER_PTS%",
                     substitutionMap.get("%DEAL_NUMBER%").replaceAll("-","."));
         }
-
-        // преобразование в *.pdf при необходимости
-        if (fs.getNeedsConversionToPdf()) {
-            ArrayList<String> pdfs = new ArrayList<>();
-            for (String template : templates) {
-                String pdfPath = template.substring(0,template.lastIndexOf(".")) + ".pdf";
-                //fileProcessor.createPDF(template, pdfPath);
-                fileProcessor.convertToPDF(template,pdfPath);
-                pdfs.add(pdfPath);
-            }
-            templates = pdfs;
-        }
-
-        // удаление ## EvaluationUseOnly ##
-
-        fileProcessor.readPDF(templates.get(0));
-
-        // составление конечного архива с документами
         if ((templates != null) && (templates.size() > 0)) {
+            ArrayList<String> parsed_templates = new ArrayList<>();
+            // замена полученных шаблонов на данные с формы
+            for (String zf : templates) {
+                parsed_templates.add(fileProcessor.modifyZipFile(zf, substitutionMap));
+            }
+            templates = parsed_templates;
+
+            // преобразование в *.pdf при необходимости
+            if (fs.getNeedsConversionToPdf()) {
+                ArrayList<String> pdfs = new ArrayList<>();
+                for (String template : templates) {
+                    String pdfPath = template.substring(0,template.lastIndexOf(".")) + ".pdf";
+                    //fileProcessor.createPDF(template, pdfPath);
+                    fileProcessor.convertToPDF(template,pdfPath);
+                    pdfs.add(pdfPath);
+                }
+                templates = pdfs;
+            }
+
+            // удаление ## EvaluationUseOnly ##
+
+            fileProcessor.readPDF(templates.get(0));
+
+            // составление конечного архива с документами
+
             String filePath = templates.get(0);
             String zipFilePath = filePath.substring(0,filePath.lastIndexOf("/")) + "/" + fs.getDealNumber() + ".zip";
 
