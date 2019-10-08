@@ -19,6 +19,7 @@ public abstract class FileSubstitution {
     private String billSumWords;
     private String actNumber;
     private String actDate;
+    private String dateOfForm;
     private String stampAndSign;
     private ArrayList<String> filesToModify;
     private Boolean needsStampAndSign;
@@ -142,6 +143,14 @@ public abstract class FileSubstitution {
 
     public void setActNumber(String actNumber) {
         this.actNumber = actNumber;
+    }
+
+    public String getDateOfForm() {
+        return dateOfForm;
+    }
+
+    public void setDateOfForm(String dateOfForm) {
+        this.dateOfForm = dateOfForm;
     }
 
     public String getStampAndSign() {

@@ -195,7 +195,7 @@ public class FileProcessor {
             template.save(new java.io.File(newPathToDocx) );
             return newPathToDocx;
         } catch (Exception ex) {
-
+            ex.getMessage();
         }
 
         return pathToDocx;

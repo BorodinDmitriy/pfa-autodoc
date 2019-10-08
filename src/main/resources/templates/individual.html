@@ -25,6 +25,10 @@
                 <td><input type="text" th:field="*{listenerCred}"/></td>
             </tr>
             <tr>
+                <td><label >ФИО слушателя (в род. падеже)</label></td>
+                <td><input type="text" th:field="*{listenerCredRodPad}"/></td>
+            </tr>
+            <tr>
                 <td><label> Дата рождения</label></td>
                 <td><input type="text" th:field="*{dateOfBirth}"/></td>
             </tr>
@@ -93,6 +97,14 @@
             <tr>
                 <td><label>Акт от </label></td>
                 <td><input type="text" th:field="*{actDate}"/></td>
+            </tr>
+
+            <tr>
+                <td><label>Форма заявления к сдаче экзамена </label></td>
+            </tr>
+            <tr>
+                <td><label>Дата заявления</label></td>
+                <td><input type="text" th:field="*{dateOfForm}"/></td>
             </tr>
 
             <tr>
