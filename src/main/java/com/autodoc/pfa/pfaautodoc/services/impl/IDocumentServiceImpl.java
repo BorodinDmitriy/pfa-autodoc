@@ -40,7 +40,7 @@ public class IDocumentServiceImpl  implements IDocumentService {
     @Override
     public ArrayList<String> getInitialTemplates(FileSubstitution fs, String fileType) {
         ArrayList<String> resultList = new ArrayList<>();
-        List<FileTemplate> fileTemplatesData = iFileTemplateDAO.getFileTemplates(fileType);
+        List<FileTemplate> fileTemplatesData = iFileTemplateDAO.getFileTemplates(fileType,fs.getNeedsStampAndSign());
         if ((fileTemplatesData != null) && (fs.getFilesToModify().size() != 0)) {
             for (FileTemplate ft : fileTemplatesData) {
                 for (String checker : fs.getFilesToModify()) {

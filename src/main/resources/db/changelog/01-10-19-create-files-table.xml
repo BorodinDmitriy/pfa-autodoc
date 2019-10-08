@@ -11,6 +11,7 @@
             <column name="id" type="int"/>
             <column name="name" type="nvarchar(255)"/>
             <column name="type" type="nvarchar(255)"/>
+            <column name="is_signed" type="boolean" />
             <!--types: individual, legal -->
             <column name="path" type="text"/>
         </createTable>

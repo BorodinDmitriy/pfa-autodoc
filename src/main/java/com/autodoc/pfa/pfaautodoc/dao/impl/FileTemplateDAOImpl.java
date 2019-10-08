@@ -27,9 +27,10 @@ public class FileTemplateDAOImpl implements IFileTemplateDAO {
     }
 
     @Override
-    public List<FileTemplate> getFileTemplates(String fileType) {
-        final String sql = "SELECT f.* FROM files AS f WHERE type=:fileType";
+    public List<FileTemplate> getFileTemplates(String fileType, Boolean isSigned) {
+        final String sql = "SELECT f.* FROM files AS f WHERE type=:fileType AND is_signed=:isSigned";
         SqlParameterSource namedParameters = new MapSqlParameterSource("fileType", fileType);
+        ((MapSqlParameterSource) namedParameters).addValue("isSigned",isSigned);
         List<FileTemplate> fileTemplates = null;
         try {
 

@@ -5,6 +5,7 @@ public class FileTemplate {
     private String name;
     private String path;
     private String type;
+    private Boolean isSigned;
 
     public Integer getId() {
         return id;
@@ -36,5 +37,13 @@ public class FileTemplate {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Boolean getSigned() {
+        return isSigned;
+    }
+
+    public void setSigned(Boolean signed) {
+        isSigned = signed;
     }
 }
