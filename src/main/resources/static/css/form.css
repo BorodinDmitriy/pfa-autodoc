@@ -1,0 +1,35 @@
+.form-label {
+    font-weight: bold;
+    display: inline-block;
+    line-height: 2.5;
+    text-align: right;
+}
+
+.main-logo {
+    max-width: 100%;
+}
+
+h4 {
+    width: 100%;
+    text-align:center;
+    margin: 20px 20px;
+}
+
+hr {
+    width: 50%;
+}
+
+.container {
+    margin: 0 0 0 30%;
+}
+
+.col-6.form-label {
+    text-align: center;
+    line-height: normal;
+}
+
+.btn-block {
+    display: block;
+    width: 50%;
+    margin: 0 0 70px;
+}

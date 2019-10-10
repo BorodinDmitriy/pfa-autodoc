@@ -3,138 +3,255 @@
 <head>
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/form.css}"/>
 </head>
 <body>
-
-    <form action="#" th:action="@{/documents/individual/}" th:object="${individualfilesubstitution}" method="POST">
-        <table border="1">
-            <tr>
-                <td><label>Номер договора </label></td>
-                <td><input type="text" th:field="*{dealNumber}"/></td>
-            </tr>
-            <tr>
-                <td><label>Дата договора </label></td>
-                <td><input type="text" th:field="*{dealDate}"/></td>
-            </tr>
-            <tr>
-                <td><label>На основании </label></td>
-                <td><input type="text" th:field="*{basis}"/></td>
-            </tr>
-            <tr>
-                <td><label >ФИО слушателя </label></td>
-                <td><input type="text" th:field="*{listenerCred}"/></td>
-            </tr>
-            <tr>
-                <td><label >ФИО слушателя (в род. падеже)</label></td>
-                <td><input type="text" th:field="*{listenerCredRodPad}"/></td>
-            </tr>
-            <tr>
-                <td><label> Дата рождения</label></td>
-                <td><input type="text" th:field="*{dateOfBirth}"/></td>
-            </tr>
-            <tr>
-                <td><label>Серия/номер паспорта </label></td>
-                <td><input type="text" th:field="*{passSerNum}"/></td>
-            </tr>
-            <tr>
-                <td><label> Дата выдачи/отделение</label></td>
-                <td><input type="text" th:field="*{passDelData}"/></td>
-            </tr>
-            <tr>
-                <td><label>Адрес регистрации </label></td>
-                <td><input type="text" th:field="*{regAddress}"/></td>
-            </tr>
-            <tr>
-                <td><label>Заказчик </label></td>
-                <td><input type="text" th:field="*{customer}"/></td>
-            </tr>
-            <tr>
-                <td><label>По программе </label></td>
-                <td><input type="text" th:field="*{programType}"/></td>
-            </tr>
-            <tr>
-                <td><label>Программа </label></td>
-                <td><input type="text" th:field="*{programName}"/></td>
-            </tr>
-            <tr>
-                <td><label>Длительность </label></td>
-                <td><input type="text" th:field="*{latency}"/></td>
-            </tr>
-            <tr>
-                <td><label> Стоимость</label></td>
-                <td><input type="text" th:field="*{cost}"/></td>
-            </tr>
-
-            <tr>
-                <td><label>Счет </label></td>
-            </tr>
-
-            <tr>
-                <td><label> Счет №</label></td>
-                <td><input type="text" th:field="*{billNumber}"/></td>
-            </tr>
-            <tr>
-                <td><label>Счет от </label></td>
-                <td><input type="text" th:field="*{billDate}"/></td>
-            </tr>
-            <tr>
-                <td><label> Цена/Сумма/Итого</label></td>
-                <td><input type="text" th:field="*{billSum}"/></td>
-            </tr>
-            <tr>
-                <td><label> Цена прописью</label></td>
-                <td><input type="text" th:field="*{billSumWords}"/></td>
-            </tr>
-
-            <tr>
-                <td><label> Акт</label></td>
-            </tr>
-
-            <tr>
-                <td><label>Акт № </label></td>
-                <td><input type="text" th:field="*{actNumber}"/></td>
-            </tr>
-            <tr>
-                <td><label>Акт от </label></td>
-                <td><input type="text" th:field="*{actDate}"/></td>
-            </tr>
-
-            <tr>
-                <td><label>Форма заявления к сдаче экзамена </label></td>
-            </tr>
-            <tr>
-                <td><label>Дата заявления</label></td>
-                <td><input type="text" th:field="*{dateOfForm}"/></td>
-            </tr>
-
-            <tr>
-                <td><input type="checkbox" th:field=="*{filesToModify}" value="1"/> Договор</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" th:field=="*{filesToModify}" value="2"/> Счет</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" th:field=="*{filesToModify}" value="3"/> Акт</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" th:field=="*{filesToModify}" value="4"/> Согласие</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" th:field=="*{filesToModify}" value="5"/> Форма заявления о допуске</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" th:field=="*{needsStampAndSign}" />С печатью/подписью</td>
-            </tr>
-
-            <tr>
-                <td><input type="checkbox" th:field=="*{needsConversionToPdf}" value="true"/> Форма заявления о допуске</td>
-            </tr>
+    <div class="container">
+        <div class="col-6 header">
+            <a class="main-logo" href="/">
+                <img class="main-logo" src="../static/images/logo.png" th:src="@{/static/images/logo.png}" alt="На главную">
+            </a>
+            <h4>Создание документов для физического лица</h4>
+        </div>
+        <form action="#" th:action="@{/documents/individual/}" th:object="${individualfilesubstitution}" method="POST">
+            <hr align="left" color="black">
+            <div class="form-group row" >
+                <label class="col-6 form-label">Данные договора</label>
+            </div>
+            <hr align="left" color="black">
 
 
-            <tr>
-                <td><input type="submit" value="Submit" /></td>
-            </tr>
-        </table>
-</form>
+            <div class="form-group row" >
+                <label class="col-3 form-label date-class" for="dealNumber">Номер договора:</label>
+                <div class="col-3">
+                    <input type="text" class="form-control date-class" id="dealNumber" th:field="*{dealNumber}" placeholder="ДД-ММ-ГГ">
+                    <small id="dealNumberHelp" class="form-text text-muted">Например: 21-11-19</small>
+                </div>
+            </div>
+
+            <div class="form-group row" >
+                <label class="col-3 form-label" for="dealDate">Дата договора:</label>
+                <div class="col-3">
+                    <input type="text" class="form-control" id="dealDate" th:field="*{dealDate}">
+                    <small id="dealDateHelp" class="form-text text-muted">Например: 25 ноября 2019 г.</small>
+                </div>
+            </div>
+
+            <div class="form-group row" >
+                <label class="col-3 form-label" for="basis">На основании:</label>
+                <div class="col-3">
+                    <textarea class="form-control" id="basis" th:field="*{basis}" placeholder="Введите текст..."></textarea>
+                </div>
+            </div>
+
+            <div class="form-group row" >
+                <label class="col-3 form-label" for="listenerCred">ФИО слушателя:</label>
+                <div class="col-3">
+                    <input type="text" class="form-control" id="listenerCred" th:field="*{listenerCred}" placeholder="Введите текст...">
+                    <small id="listenerCredHelp" class="form-text text-muted">Например: Иванов Иван Иванович</small>
+                </div>
+            </div>
+
+            <div class="form-group row" >
+                <label class="col-3 form-label" for="listenerCredRodPad">ФИО слушателя (в род. падеже):</label>
+                <div class="col-3">
+                    <input type="text" class="form-control" id="listenerCredRodPad" th:field="*{listenerCredRodPad}" placeholder="Введите текст...">
+                    <small id="listenerCredRodPadHelp" class="form-text text-muted">Например: Иванова Ивана Ивановича</small>
+                </div>
+            </div>
+
+            <div class="form-group row" >
+                <label class="col-3 form-label" for="dateOfBirth">Дата рождения:</label>
+                <div class="col-3">
+                    <input type="text" class="form-control" id="dateOfBirth" th:field="*{dateOfBirth}" placeholder="ДД.ММ.ГГГГ">
+                    <small id="dateOfBirthHelp" class="form-text text-muted">Например: 14.03.1995</small>
+                </div>
+            </div>
+
+            <div class="form-group row" >
+                <label class="col-3 form-label" for="passSerNum">Серия/номер паспорта:</label>
+                <div class="col-3">
+                    <input type="text" class="form-control" id="passSerNum" th:field="*{passSerNum}" placeholder="XX XX XXXXXX">
+                    <small id="passSerNumHelp" class="form-text text-muted">Например: 20 08 101246</small>
+                </div>
+            </div>
+
+            <div class="form-group row" >
+                <label class="col-3 form-label" for="passDelData">Дата выдачи/отделение:</label>
+                <div class="col-3">
+                    <textarea class="form-control" id="passDelData" th:field="*{passDelData}" placeholder="Введите текст..."></textarea>
+                </div>
+            </div>
+
+            <div class="form-group row" >
+                <label class="col-3 form-label" for="regAddress">Адрес регистрации:</label>
+                <div class="col-3">
+                    <textarea class="form-control" id="regAddress" th:field="*{regAddress}" placeholder="Введите текст..."></textarea>
+                </div>
+            </div>
+
+            <div class="form-group row" >
+                <label class="col-3 form-label" for="customer">Заказчик:</label>
+                <div class="col-3">
+                    <input type="text" class="form-control" id="customer" th:field="*{customer}" placeholder="Введите текст...">
+                    <small id="customerHelp" class="form-text text-muted">Например: Иванов Иван Иванович</small>
+                </div>
+            </div>
+
+            <div class="form-group row" >
+                <label class="col-3 form-label" for="programType">По программе:</label>
+                <div class="col-3">
+                    <input type="text" class="form-control" id="programType" th:field="*{programType}" placeholder="Введите текст...">
+                    <small id="programTypeHelp" class="form-text text-muted">Например: профессиональной подготовки</small>
+                </div>
+            </div>
+
+            <div class="form-group row" >
+                <label class="col-3 form-label" for="programName">Программа:</label>
+                <div class="col-3">
+                    <input type="text" class="form-control" id="programName" th:field="*{programName}" placeholder="Введите текст без кавычек...">
+                    <small id="programNameHelp" class="form-text text-muted">Например: Стоматология терапевтическая</small>
+                </div>
+            </div>
+
+            <div class="form-group row" >
+                <label class="col-3 form-label" for="latency">Длительность:</label>
+                <div class="col-3">
+                    <input type="text" class="form-control" id="latency" th:field="*{latency}" placeholder="NNN">
+                    <small id="latencyHelp" class="form-text text-muted">Например: 506</small>
+                </div>
+            </div>
+
+            <div class="form-group row" >
+                <label class="col-3 form-label" for="cost">Стоимость:</label>
+                <div class="col-3">
+                    <input type="text" class="form-control" id="cost" th:field="*{cost}" placeholder="CCCCC">
+                    <small id="costHelp" class="form-text text-muted">Например: 35000</small>
+                </div>
+            </div>
+
+            <hr align="left" color="black">
+            <div class="form-group row" >
+                <label class="col-6 form-label">Данные счета</label>
+            </div>
+            <hr align="left" color="black">
+
+            <div class="form-group row" >
+                <label class="col-3 form-label date-class" for="billNumber">Счет №:</label>
+                <div class="col-3">
+                    <input type="text" class="form-control date-class" id="billNumber" th:field="*{billNumber}" placeholder="ДД-ММ-ГГ">
+                    <small id="billNumberHelp" class="form-text text-muted">Например: 21-11-19</small>
+                </div>
+            </div>
+
+            <div class="form-group row" >
+                <label class="col-3 form-label date-class" for="billDate">Счет от:</label>
+                <div class="col-3">
+                    <input type="text" class="form-control" id="billDate" th:field="*{billDate}">
+                    <small id="billDateHelp" class="form-text text-muted">Например: 25 ноября 2019 г.</small>
+                </div>
+            </div>
+
+            <div class="form-group row" >
+                <label class="col-3 form-label" for="billSum">Цена/Сумма/Итого:</label>
+                <div class="col-3">
+                    <input type="text" class="form-control" id="billSum" th:field="*{billSum}" placeholder="CC CCC, CC">
+                    <small id="billSumHelp" class="form-text text-muted">Например: 35 000,00</small>
+                </div>
+            </div>
+
+            <div class="form-group row" >
+                <label class="col-3 form-label" for="billSumWords">Цена прописью:</label>
+                <div class="col-3">
+                    <input type="text" class="form-control" id="billSumWords" th:field="*{billSumWords}" placeholder="Введите текст...">
+                    <small id="billSumWordsHelp" class="form-text text-muted">Например: Тридцать пять тысяч рублей 00 копеек</small>
+                </div>
+            </div>
+
+            <hr align="left" color="black">
+            <div class="form-group row" >
+                <label class="col-6 form-label">Данные акта</label>
+            </div>
+            <hr align="left" color="black">
+
+
+            <div class="form-group row" >
+                <label class="col-3 form-label date-class" for="actNumber">Акт №:</label>
+                <div class="col-3">
+                    <input type="text" class="form-control date-class" id="actNumber" th:field="*{actNumber}" placeholder="ДД-ММ-ГГ">
+                    <small id="actNumberHelp" class="form-text text-muted">Например: 21-11-19</small>
+                </div>
+            </div>
+
+            <div class="form-group row" >
+                <label class="col-3 form-label date-class" for="actDate">Акт от:</label>
+                <div class="col-3">
+                    <input type="text" class="form-control" id="actDate" th:field="*{actDate}">
+                    <small id="actDateHelp" class="form-text text-muted">Например: 25 ноября 2019 г.</small>
+                </div>
+            </div>
+
+            <hr align="left" color="black">
+            <div class="form-group row" >
+                <label class="col-6 form-label">Данные формы заявления о сдаче экзамена</label>
+            </div>
+            <hr align="left" color="black">
+
+            <div class="form-group row" >
+                <label class="col-3 form-label date-class" for="dateOfForm">Дата заявления:</label>
+                <div class="col-3">
+                    <input type="text" class="form-control" id="dateOfForm" th:field="*{dateOfForm}">
+                    <small id="dateOfFormHelp" class="form-text text-muted">Например: 25 ноября 2019 г.</small>
+                </div>
+            </div>
+
+            <hr align="left" color="black">
+            <div class="form-group row" >
+                <label class="col-6 form-label">Параметры печати</label>
+            </div>
+            <hr align="left" color="black">
+
+            <fieldset>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" class="custom-control-input" th:field=="*{filesToModify}" value="1" id="check1">
+                    <label class="custom-control-label" for="check1">Договор</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" class="custom-control-input" th:field=="*{filesToModify}" value="2" id="check2">
+                    <label class="custom-control-label" for="check2">Счет</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox"  class="custom-control-input" th:field=="*{filesToModify}" value="3" id="check3">
+                    <label class="custom-control-label" for="check3">Акт</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" class="custom-control-input"  th:field=="*{filesToModify}" value="4" id="check4">
+                    <label class="custom-control-label" for="check4">Согласие</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" class="custom-control-input"  th:field=="*{filesToModify}" value="5" id="check5">
+                    <label class="custom-control-label" for="check5">Форма заявления о допуске</label>
+                </div>
+
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" class="custom-control-input"  th:field=="*{needsStampAndSign}" id="checkStampAndSign">
+                    <label class="custom-control-label" for="checkStampAndSign">С печатью/подписью</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" class="custom-control-input" th:field=="*{needsConversionToPdf}" value="true" id="checkNeedConversion">
+                    <label class="custom-control-label" for="checkNeedConversion">Преобразовать в *.pdf</label>
+                </div>
+            </fieldset>
+
+            <button type="submit" class="btn btn-lg btn-primary btn-block">Создать документы</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script th:src="@{/static/js/form.js}"></script>
+
 </body>
 </html>
