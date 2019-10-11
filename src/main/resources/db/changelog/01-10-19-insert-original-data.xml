@@ -81,6 +81,78 @@
             <column name="path" value="./src/main/resources/documents/signed/individuals/"/>
         </insert>
 
+        <insert tableName="files">
+            <column name="id" value="11"/>
+            <column name="name" value="1_Dogovor_s_yur_litsom.docx"/>
+            <column name="type" value="legal"/>
+            <column name="is_signed" value="false"/>
+            <column name="path" value="./src/main/resources/documents/legals/"/>
+        </insert>
+        <insert tableName="files">
+            <column name="id" value="12"/>
+            <column name="name" value="2_Schet_s_yur_litsom.docx"/>
+            <column name="type" value="legal"/>
+            <column name="is_signed" value="false"/>
+            <column name="path" value="./src/main/resources/documents/legals/"/>
+        </insert>
+        <insert tableName="files">
+            <column name="id" value="13"/>
+            <column name="name" value="3_Akt.docx"/>
+            <column name="type" value="legal"/>
+            <column name="is_signed" value="false"/>
+            <column name="path" value="./src/main/resources/documents/legals/"/>
+        </insert>
+        <insert tableName="files">
+            <column name="id" value="14"/>
+            <column name="name" value="4_Soglasie_na_obrabotku_dannykh.docx"/>
+            <column name="type" value="legal"/>
+            <column name="is_signed" value="false"/>
+            <column name="path" value="./src/main/resources/documents/legals/"/>
+        </insert>
+        <insert tableName="files">
+            <column name="id" value="15"/>
+            <column name="name" value="5_Forma.docx"/>
+            <column name="type" value="legal"/>
+            <column name="is_signed" value="false"/>
+            <column name="path" value="./src/main/resources/documents/legals/"/>
+        </insert>
+
+        <insert tableName="files">
+            <column name="id" value="16"/>
+            <column name="name" value="1_Dogovor_s_yur_litsom.docx"/>
+            <column name="type" value="legal"/>
+            <column name="is_signed" value="true"/>
+            <column name="path" value="./src/main/resources/documents/signed/legals/"/>
+        </insert>
+        <insert tableName="files">
+            <column name="id" value="17"/>
+            <column name="name" value="2_Schet_s_yur_litsom.docx"/>
+            <column name="type" value="legal"/>
+            <column name="is_signed" value="true"/>
+            <column name="path" value="./src/main/resources/documents/signed/legals/"/>
+        </insert>
+        <insert tableName="files">
+            <column name="id" value="18"/>
+            <column name="name" value="3_Akt.docx"/>
+            <column name="type" value="legal"/>
+            <column name="is_signed" value="true"/>
+            <column name="path" value="./src/main/resources/documents/signed/legals/"/>
+        </insert>
+        <insert tableName="files">
+            <column name="id" value="19"/>
+            <column name="name" value="4_Soglasie_na_obrabotku_dannykh.docx"/>
+            <column name="type" value="legal"/>
+            <column name="is_signed" value="true"/>
+            <column name="path" value="./src/main/resources/documents/signed/legals/"/>
+        </insert>
+        <insert tableName="files">
+            <column name="id" value="20"/>
+            <column name="name" value="5_Forma.docx"/>
+            <column name="type" value="legal"/>
+            <column name="is_signed" value="true"/>
+            <column name="path" value="./src/main/resources/documents/signed/legals/"/>
+        </insert>
+
         <!-- insert substitutes data -->
         <insert tableName="substitutes">
             <column name="id" value="1"/>
@@ -107,22 +179,22 @@
         <insert tableName="substitutes">
             <column name="id" value="5"/>
             <column name="name" value="%DATE_OF_BIRTH%"/>
-            <column name="type" value="individual"/>
+            <column name="type" value="complex"/>
         </insert>
         <insert tableName="substitutes">
             <column name="id" value="6"/>
             <column name="name" value="%PASS_SER_NUM%"/>
-            <column name="type" value="individual"/>
+            <column name="type" value="complex"/>
         </insert>
         <insert tableName="substitutes">
             <column name="id" value="7"/>
             <column name="name" value="%PASS_DEL_DATA%"/>
-            <column name="type" value="individual"/>
+            <column name="type" value="complex"/>
         </insert>
         <insert tableName="substitutes">
             <column name="id" value="8"/>
             <column name="name" value="%REG_ADDRESS%"/>
-            <column name="type" value="individual"/>
+            <column name="type" value="complex"/>
         </insert>
         <insert tableName="substitutes">
             <column name="id" value="9"/>

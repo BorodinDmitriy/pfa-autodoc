@@ -9,6 +9,10 @@ public abstract class FileSubstitution {
     private String basis;
     private String listenerCred;
     private String listenerCredRodPad;
+    private String dateOfBirth;
+    private String passSerNum;
+    private String passDelData;
+    private String regAddress;
     private String programType;
     private String programName;
     private String latency;
@@ -24,6 +28,38 @@ public abstract class FileSubstitution {
     private ArrayList<String> filesToModify;
     private Boolean needsStampAndSign;
     private Boolean needsConversionToPdf;
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getPassSerNum() {
+        return passSerNum;
+    }
+
+    public void setPassSerNum(String passSerNum) {
+        this.passSerNum = passSerNum;
+    }
+
+    public String getPassDelData() {
+        return passDelData;
+    }
+
+    public void setPassDelData(String passDelData) {
+        this.passDelData = passDelData;
+    }
+
+    public String getRegAddress() {
+        return regAddress;
+    }
+
+    public void setRegAddress(String regAddress) {
+        this.regAddress = regAddress;
+    }
 
     public String getDealNumber() {
         return dealNumber;

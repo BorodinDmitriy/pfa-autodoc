@@ -1,6 +1,7 @@
 package com.autodoc.pfa.pfaautodoc.controllers;
 
 import com.autodoc.pfa.pfaautodoc.models.IndividualFileSubstitution;
+import com.autodoc.pfa.pfaautodoc.models.LegalFileSubstitution;
 import com.autodoc.pfa.pfaautodoc.services.IDocumentService;
 import com.autodoc.pfa.pfaautodoc.utils.ObjectInspector;
 import io.swagger.annotations.Api;
@@ -94,5 +95,28 @@ public class DocumentController {
         }*/
 
         //return Paths.get("").toAbsolutePath().toString();
+    }
+    @ApiOperation(value = "Производит генерацию документов для физического лица")
+    @PostMapping(value = "/legal/")
+    @ResponseBody
+    void generateDocumentsForLegal(HttpServletRequest request,
+                                        HttpServletResponse response,
+                                        @ApiParam(value = "Данные замены") LegalFileSubstitution dataToChange) {
+        File fileToDeliver = iDocumentService.getProcessedFiles(dataToChange, "legal");
+        String tempPath = fileToDeliver.toPath().toString();
+        String tempDirectory = tempPath.substring(0,tempPath.lastIndexOf('/'));
+        if ((fileToDeliver != null) && (Files.exists(fileToDeliver.toPath())))
+        {
+            response.addHeader("Content-Disposition", "attachment; filename=" + fileToDeliver.getName());
+            try
+            {
+                Files.copy(fileToDeliver.toPath(), response.getOutputStream());
+                iDocumentService.cleanupTempDirectory(tempDirectory);
+                response.getOutputStream().flush();
+            }
+            catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 }

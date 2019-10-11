@@ -86,7 +86,7 @@ public class IDocumentServiceImpl  implements IDocumentService {
 
         templatesToSubstitute = iSubstitutionDAO.getSubstitutionsForFileType(fileType);
         dataFromClientFields.addAll(ObjectInspector.inspect(FileSubstitution.class));
-        dataFromClientFields.addAll(ObjectInspector.inspect(IndividualFileSubstitution.class));
+        dataFromClientFields.addAll(ObjectInspector.inspect(fs.getClass()));
         if ((templatesToSubstitute != null) && (dataFromClientFields.size() > 0) ) {
             for (int i = 0; i < templatesToSubstitute.size(); i++) {
                 String templateCopy = templatesToSubstitute.get(i);
