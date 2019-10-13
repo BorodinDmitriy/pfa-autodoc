@@ -122,7 +122,24 @@ public class FileProcessor {
         return bytes;
     }
 
-    public String modifyZipFile(String filePath, HashMap<String,String> substitutionData) {
+    public String getSignImageEntryName(String filePath) {
+        String result = "";
+        long imageSize = 6834;
+        try (ZipInputStream zip = new ZipInputStream(new ByteArrayInputStream(Files.readAllBytes(Paths.get(filePath))))) {
+            for (ZipEntry entry = zip.getNextEntry(); entry != null; entry = zip.getNextEntry()) {
+                String name = entry.getName();
+                if ((name.contains("media")) && (entry.getSize() == imageSize)) {
+                    return name;
+                }
+            }
+        } catch (ZipException ex) {
+
+        } catch (IOException ex) {
+
+        }
+        return result;
+    }
+    public String modifyZipFile(String filePath) {
         try {
             String newFilePath = filePath.substring(0,filePath.lastIndexOf('/') + 1) +
                     "_" + filePath.substring(filePath.lastIndexOf('/') + 1);
@@ -135,16 +152,17 @@ public class FileProcessor {
                     if (entrySize >= Integer.MAX_VALUE) {
                         throw new OutOfMemoryError("Too large file " + name + ", size is " + entrySize);
                     }
-                    byte[] buf = readByteArray(zip, entrySize);
-                    if (name.equalsIgnoreCase("word/document.xml")) {
-                        String s = new String(buf);
-                        for (Map.Entry<String,String> mapEntry : substitutionData.entrySet())
-                            s = s.replaceAll(mapEntry.getKey(),mapEntry.getValue());
-                        buf = s.getBytes("UTF-8");
-                    }
+                    byte[] buf;
+
                     ZipEntry locZE = new ZipEntry(entry.getName());
                     zos.putNextEntry(locZE);
-                    zos.write(buf, 0, entrySize);
+                    if (name.equalsIgnoreCase(getSignImageEntryName(filePath))) {
+                        Path fileLocation = Paths.get("./src/main/resources/documents/signed/stamp_215_215.png");
+                        buf = Files.readAllBytes(fileLocation);
+                    } else {
+                        buf = readByteArray(zip, entrySize);
+                    }
+                    zos.write(buf, 0, buf.length);
                     zos.closeEntry();
                 }
             }
