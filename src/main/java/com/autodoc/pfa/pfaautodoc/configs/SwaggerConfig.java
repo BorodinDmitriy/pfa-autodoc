@@ -34,7 +34,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
 
         if (!registry.hasMappingForPattern("/static/**")) {
-            registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+            registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/").setCachePeriod(0);
         }
     }
 }
