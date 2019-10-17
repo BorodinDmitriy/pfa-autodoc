@@ -3,7 +3,6 @@ package com.autodoc.pfa.pfaautodoc.controllers;
 import com.autodoc.pfa.pfaautodoc.models.AdminSettings;
 import com.autodoc.pfa.pfaautodoc.models.IndividualFileSubstitution;
 import com.autodoc.pfa.pfaautodoc.models.LegalFileSubstitution;
-import com.autodoc.pfa.pfaautodoc.services.IDocumentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,18 +10,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.nio.file.Paths;
 import java.sql.Timestamp;
 
 @Controller
 @RequestMapping("/")
 public class MainController {
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
+
+    // TODO: think of removing configuration strings somewhere
+    private final String successLogo = "/static/images/success.png";
+    private final String failureLogo = "/static/images/failure.png";
 
 
     @Autowired
@@ -61,6 +61,8 @@ public class MainController {
 
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         signImage = signImage + "timestamp=" + timestamp.getTime();
+        model.addAttribute("successLogo", successLogo);
+        model.addAttribute("failureLogo", failureLogo);
         model.addAttribute("signPath", signImage);
         model.addAttribute("adminSettings", new AdminSettings());
         return "admin";

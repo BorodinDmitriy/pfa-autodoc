@@ -42,6 +42,45 @@
         <button type="submit" class="btn btn-lg btn-primary btn-block">Изменить настройки</button>
     </form>
 
+    <div class="modal fade" id="success-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div align="center">
+                        <img class="img-modal-response" th:src="${successLogo}">
+                        <h4 class="h4-modal-header">Обновление прошло успешно!</h4>
+                        <h6 id="success-message" class="h6-modal-description"></h6>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <input type="button"  class="back-to-settings btn btn-lg btn-primary col-sm-5" value="К настройкам" />
+                        <input type="button"  class="to-main btn btn-lg btn-primary col-sm-5" value="На главную"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="failure-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div align="center">
+                        <img class="img-modal-response" th:src="${failureLogo}">
+                        <h4 class="h4-modal-header">Ошибка обновления!</h4>
+                        <h6 id="error-message" class="h6-modal-description"></h6>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <input type="button"  class="back-to-settings btn btn-lg btn-primary col-sm-11" value="К настройкам" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

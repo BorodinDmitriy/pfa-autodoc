@@ -5,7 +5,39 @@
 #sign {
     visibility: hidden;
 }
+.to-main {
+    margin: 0 0 0 50px;
+}
+
+.back-to-settings {
+    margin: 0 0 0 10px;
+}
 
 .form-group.row {
     max-height: 150px;
 }
+
+.img-modal-response {
+    max-width: 20%;
+    max-height: 20%;
+    left: 50%;
+    top: 50%;
+}
+
+.h4-modal-header {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.h6-modal-description {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.modal-content {
+    margin: 0 -15%;
+}
+

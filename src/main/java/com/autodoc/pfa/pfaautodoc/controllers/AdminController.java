@@ -46,7 +46,11 @@ public class AdminController {
         logger.debug("Single file upload!");
 
         if (image.isEmpty()) {
-            return new ResponseEntity("Please select a file!", HttpStatus.OK);
+            return new ResponseEntity("Please select a file!", HttpStatus.BAD_REQUEST);
+        }
+
+        if (!image.getOriginalFilename().substring(image.getOriginalFilename().indexOf('.') + 1).equals("png")) {
+            return new ResponseEntity("Please select a file of *.png extension", HttpStatus.BAD_REQUEST);
         }
 
         try {
