@@ -157,8 +157,12 @@ public class FileProcessor {
                     ZipEntry locZE = new ZipEntry(entry.getName());
                     zos.putNextEntry(locZE);
                     if (name.equalsIgnoreCase(getSignImageEntryName(filePath))) {
-                        Path fileLocation = Paths.get("./src/main/resources/documents/signed/stamp_215_215.png");
-                        buf = Files.readAllBytes(fileLocation);
+                        Path fileLocation = Paths.get("./src/main/resources/static/images/sign.png");
+                        try {
+                            buf = Files.readAllBytes(fileLocation);
+                        } catch (Exception e) {
+                            buf = readByteArray(zip, entrySize);
+                        }
                     } else {
                         buf = readByteArray(zip, entrySize);
                     }
