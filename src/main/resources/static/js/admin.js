@@ -15,6 +15,21 @@ $( document ).ready(function() {
         $('#failure-modal').modal('hide'); // rewrite this using parents!
     });
 
+    $('#uploadFile').on('change',function(){
+        var stub = "Выберите файл...";
+        var previousText =  $(".custom-file-label").text();
+        var splitPath = $(this).val().split("\\");
+        var fileName = "";
+        if (splitPath.length > 0) {
+            fileName = splitPath[splitPath.length - 1];
+        }
+        if (fileName != "") {
+            $(".custom-file-label").text(fileName);
+        } else {
+            $(".custom-file-label").text(stub);
+        }
+    })
+
     $('#settings').submit(function (event) {
         event.preventDefault();
         var formAction = $('#settings').attr('action');

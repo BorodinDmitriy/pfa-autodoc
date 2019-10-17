@@ -35,7 +35,12 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="uploadFile">Загрузить файл подписи:</label>
             <div class="col-3">
-                <input type="file" class="form-control" id="uploadFile" name="file" accept="image/x-png">
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" class="form-control custom-file-input" id="uploadFile" name="file" accept="image/x-png" aria-describedby="inputGroupFileAddon01">
+                        <label class="custom-file-label" for="uploadFile" data-browse="Обзор">Выберите файл...</label>
+                    </div>
+                </div>
                 <small id="uploadFileHelp" class="form-text text-muted">Файл в формате *.png размером не более 300*100 пикселей</small>
             </div>
         </div>
