@@ -15,7 +15,9 @@ services:
       #volumes:
     # - 'var/data/postgres:/var/lib/postgresql/data'
   pfa-autodoc-spring-boot-app:
-    image: pfa-autodoc
+    image: pfaautodoc/backend:latest
     restart: always
+    depends_on:
+      - postgres
     ports:
       - "8080:8080"
