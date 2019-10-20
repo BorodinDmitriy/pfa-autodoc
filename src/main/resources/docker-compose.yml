@@ -17,7 +17,5 @@ services:
   pfa-autodoc-spring-boot-app:
     image: pfaautodoc/backend:latest
     restart: always
-    depends_on:
-      - postgres
     ports:
       - "8080:8080"
