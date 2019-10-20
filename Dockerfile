@@ -1,6 +1,6 @@
 FROM java:8-jdk-alpine
 
-COPY ./target/it-berries-0.0.1-SNAPSHOT.jar /usr/app/
+COPY ./target/pfa-autodoc-0.0.1-SNAPSHOT.jar /usr/app/
 
 WORKDIR /usr/app
 
