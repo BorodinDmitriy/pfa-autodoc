@@ -36,6 +36,7 @@ public class IAdminServiceImpl implements IAdminService {
             Files.write(path, bytes);
             return true;
         } catch (Exception ex) {
+            ex.printStackTrace();
             return false;
         }
     }
