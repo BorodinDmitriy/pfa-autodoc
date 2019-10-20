@@ -130,7 +130,7 @@
                     <verbose>true</verbose>
                     <images>
                         <image>
-                            <name>pfa-autodoc/backend</name>
+                            <name>pfaautodoc/backend</name>
                             <build>
                                 <from>openjdk:8</from>
                                 <assembly>
