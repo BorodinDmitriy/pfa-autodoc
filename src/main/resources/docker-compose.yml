@@ -14,7 +14,7 @@ services:
     command: postgres -N 1000
       #volumes:
     # - 'var/data/postgres:/var/lib/postgresql/data'
-  it-berries-spring-boot-app:
+  pfa-autodoc-spring-boot-app:
     image: pfa-autodoc
     restart: always
     ports:
