@@ -32,6 +32,7 @@ public class IAdminServiceImpl implements IAdminService {
             }
 
             byte[] bytes = imageFile.getBytes();
+            System.out.println(IAdminServiceImpl.class.getResource("").getPath().toString());
             Path path = Paths.get(uploadDirectory + signFilename);
             Files.write(path, bytes);
             return true;
