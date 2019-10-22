@@ -157,7 +157,7 @@ public class FileProcessor {
                     ZipEntry locZE = new ZipEntry(entry.getName());
                     zos.putNextEntry(locZE);
                     if (name.equalsIgnoreCase(getSignImageEntryName(filePath))) {
-                        Path fileLocation = Paths.get("./src/main/resources/static/images/sign.png");
+                        Path fileLocation = Paths.get("/opt/pfaautodoc/images/sign.png");
                         try {
                             buf = Files.readAllBytes(fileLocation);
                         } catch (Exception e) {

@@ -15,7 +15,7 @@ import java.nio.file.Paths;
 @Service
 @Transactional
 public class IAdminServiceImpl implements IAdminService {
-    private static String uploadDirectory = "./src/main/resources/static/images/";
+    private static String uploadDirectory = "/opt/pfaautodoc/images/";
     private static String signFilename = "sign.png";
     private final FileProcessor fp = new FileProcessor();
 
