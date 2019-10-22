@@ -52,8 +52,8 @@ public class IDocumentServiceImpl  implements IDocumentService {
                             File initialTemplate = new File(path);
 
                             File workingDirectory = new File(workingDirectoryPath);
-                            System.out.println("try mkdirs");
-                            workingDirectory.mkdirs();
+                            System.out.println("try mkdir");
+                            workingDirectory.mkdir();
 
                             System.out.println("try createfile");
                             File templateCopy = new File(workingCopyPath);
