@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 @Service
 @Transactional
@@ -34,7 +35,7 @@ public class IAdminServiceImpl implements IAdminService {
             byte[] bytes = imageFile.getBytes();
             System.out.println(IAdminServiceImpl.class.getResource("").getPath().toString());
             Path path = Paths.get(uploadDirectory + signFilename);
-            Files.write(path, bytes);
+            Files.write(path, bytes, StandardOpenOption.CREATE);
             return true;
         } catch (Exception ex) {
             ex.printStackTrace();
