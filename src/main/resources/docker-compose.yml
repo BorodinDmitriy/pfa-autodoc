@@ -29,24 +29,24 @@ services:
       - type: bind
         source: /opt/pfaautodoc/individuals
         target: /opt/pfaautodoc/individuals
-      - type: bind
-        source: /opt/pfaautodoc/individuals/processed
-        target: /opt/pfaautodoc/individuals/processed
+     # - type: bind
+     #   source: /opt/pfaautodoc/individuals/processed
+     #   target: /opt/pfaautodoc/individuals/processed
       - type: bind
         source: /opt/pfaautodoc/legals
         target: /opt/pfaautodoc/legals
-      - type: bind
-        source: /opt/pfaautodoc/legals/processed
-        target: /opt/pfaautodoc/legals/processed
+     # - type: bind
+     #   source: /opt/pfaautodoc/legals/processed
+     #   target: /opt/pfaautodoc/legals/processed
       - type: bind
         source: /opt/pfaautodoc/signed/individuals
         target: /opt/pfaautodoc/signed/individuals
-      - type: bind
-        source: /opt/pfaautodoc/signed/individuals/processed
-        target: /opt/pfaautodoc/signed/individuals/processed
+     # - type: bind
+     #   source: /opt/pfaautodoc/signed/individuals/processed
+     #   target: /opt/pfaautodoc/signed/individuals/processed
       - type: bind
         source: /opt/pfaautodoc/signed/legals
         target: /opt/pfaautodoc/signed/legals
-      - type: bind
-        source: /opt/pfaautodoc/signed/legals/processed
-        target: /opt/pfaautodoc/signed/legals/processed
+     # - type: bind
+     #   source: /opt/pfaautodoc/signed/legals/processed
+     #   target: /opt/pfaautodoc/signed/legals/processed
