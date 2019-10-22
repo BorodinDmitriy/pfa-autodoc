@@ -52,14 +52,18 @@ public class IDocumentServiceImpl  implements IDocumentService {
                             File initialTemplate = new File(path);
 
                             File workingDirectory = new File(workingDirectoryPath);
-                            workingDirectory.mkdir();
+                            System.out.println("try mkdirs");
+                            workingDirectory.mkdirs();
 
+                            System.out.println("try createfile");
                             File templateCopy = new File(workingCopyPath);
                             templateCopy.createNewFile();
 
+                            System.out.println("try copyfile");
                             fileProcessor.copyFile(initialTemplate,templateCopy);
                             resultList.add(workingCopyPath);
 
+                            System.out.println("fileaddok");
                         }  catch (Exception ex) {
                             ex.printStackTrace();
                             resultList = null;
