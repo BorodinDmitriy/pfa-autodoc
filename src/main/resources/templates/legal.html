@@ -26,7 +26,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label date-class" for="dealNumber">Номер договора:</label>
             <div class="col-3">
-                <input type="text" class="form-control date-class" id="dealNumber" th:field="*{dealNumber}" placeholder="ДД-ММ-ГГ">
+                <textarea class="form-control date-class" id="dealNumber" th:field="*{dealNumber}" placeholder="ДД-ММ-ГГ"></textarea>
                 <small id="dealNumberHelp" class="form-text text-muted">Например: 21-11-19</small>
             </div>
         </div>
@@ -34,7 +34,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="dealDate">Дата договора:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="dealDate" th:field="*{dealDate}">
+                <textarea class="form-control" id="dealDate" th:field="*{dealDate}"></textarea>
                 <small id="dealDateHelp" class="form-text text-muted">Например: 25 ноября 2019 г.</small>
             </div>
         </div>
@@ -42,7 +42,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="orgName">Название организации:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="orgName" th:field="*{orgName}" placeholder="Введите текст...">
+                <textarea class="form-control" id="orgName" th:field="*{orgName}" placeholder="Введите текст..."></textarea>
                 <small id="orgNameHelp" class="form-text text-muted">Например: ООО "Рога и копыта"</small>
             </div>
         </div>
@@ -50,7 +50,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="inPersonOf">В лице:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="inPersonOf" th:field="*{inPersonOf}" placeholder="Введите текст...">
+                <textarea class="form-control" id="inPersonOf" th:field="*{inPersonOf}" placeholder="Введите текст..."></textarea>
                 <small id="inPersonOfHelp" class="form-text text-muted">Например: генерального директора</small>
             </div>
         </div>
@@ -58,7 +58,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="headCred">ФИО руководителя:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="headCred" th:field="*{headCred}" placeholder="Введите текст...">
+                <textarea class="form-control" id="headCred" th:field="*{headCred}" placeholder="Введите текст..."></textarea>
                 <small id="headCredHelp" class="form-text text-muted">Например: Иванов Иван Иванович</small>
             </div>
         </div>
@@ -66,7 +66,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="headCredRodPad">ФИО руководителя (в род. падеже):</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="headCredRodPad" th:field="*{headCredRodPad}" placeholder="Введите текст...">
+                <textarea class="form-control" id="headCredRodPad" th:field="*{headCredRodPad}" placeholder="Введите текст..."></textarea>
                 <small id="headCredRodPadHelp" class="form-text text-muted">Например: Иванова Ивана Ивановича</small>
             </div>
         </div>
@@ -74,7 +74,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="basedOn">Действующего на основании:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="basedOn" th:field="*{basedOn}" placeholder="Введите текст...">
+                <textarea class="form-control" id="basedOn" th:field="*{basedOn}" placeholder="Введите текст..."></textarea>
                 <small id="basedOnHelp" class="form-text text-muted">Например: Устава</small>
             </div>
         </div>
@@ -89,7 +89,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="factAddress">Фактический адрес:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="factAddress" th:field="*{factAddress}" placeholder="Введите текст...">
+                <textarea class="form-control" id="factAddress" th:field="*{factAddress}" placeholder="Введите текст..."></textarea>
                 <small id="factAddressHelp" class="form-text text-muted">Например: г. Мытищи, ул. Строителей, 12</small>
             </div>
         </div>
@@ -97,7 +97,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="legalAddress">Юридический адрес:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="legalAddress" th:field="*{legalAddress}" placeholder="Введите текст...">
+                <textarea class="form-control" id="legalAddress" th:field="*{legalAddress}" placeholder="Введите текст..."></textarea>
                 <small id="legalAddressHelp" class="form-text text-muted">Например: г. Мытищи, ул. Строителей, 12</small>
             </div>
         </div>
@@ -105,7 +105,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="mailAddress">Почтовый адрес:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="mailAddress" th:field="*{mailAddress}" placeholder="Введите текст...">
+                <textarea class="form-control" id="mailAddress" th:field="*{mailAddress}" placeholder="Введите текст..."></textarea>
                 <small id="mailAddressHelp" class="form-text text-muted">Например: г. Мытищи, ул. Строителей, 12</small>
             </div>
         </div>
@@ -113,7 +113,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="taxpayerId">ИНН:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="taxpayerId" th:field="*{taxpayerId}" placeholder="XXXXXXXXXXXX">
+                <textarea class="form-control" id="taxpayerId" th:field="*{taxpayerId}" placeholder="XXXXXXXXXXXX"></textarea>
                 <small id="taxpayerIdHelp" class="form-text text-muted">Например: 360402421407</small>
             </div>
         </div>
@@ -121,7 +121,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="codeOfReason">КПП:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="codeOfReason" th:field="*{codeOfReason}" placeholder="KKKKKKKKKKK">
+                <textarea class="form-control" id="codeOfReason" th:field="*{codeOfReason}" placeholder="KKKKKKKKKKK"></textarea>
                 <small id="codeOfReasonHelp" class="form-text text-muted">Например: 505001001</small>
             </div>
         </div>
@@ -129,7 +129,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="stateRegNum">ОГРН:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="stateRegNum" th:field="*{stateRegNum}" placeholder="CCCCCCCCCCCCC">
+                <textarea class="form-control" id="stateRegNum" th:field="*{stateRegNum}" placeholder="CCCCCCCCCCCCC"></textarea>
                 <small id="stateRegNumHelp" class="form-text text-muted">Например: 1031628201098</small>
             </div>
         </div>
@@ -137,7 +137,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="bank">Банк:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="bank" th:field="*{bank}" placeholder="Введите текст...">
+                <textarea class="form-control" id="bank" th:field="*{bank}" placeholder="Введите текст..."></textarea>
                 <small id="bankHelp" class="form-text text-muted">Например: АО «Тинькофф Банк» Г. МОСКВА</small>
             </div>
         </div>
@@ -145,7 +145,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="bankAccount">Расчетный счет:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="bankAccount" th:field="*{bankAccount}" placeholder="XXXXXXXXXXXXXXXXXXXX">
+                <textarea class="form-control" id="bankAccount" th:field="*{bankAccount}" placeholder="XXXXXXXXXXXXXXXXXXXX"></textarea>
                 <small id="bankAccountHelp" class="form-text text-muted">Например: 40703810900000707822</small>
             </div>
         </div>
@@ -153,7 +153,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="correlAccount">Корреляционный счет:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="correlAccount" th:field="*{correlAccount}" placeholder="XXXXXXXXXXXXXXXXXXXX">
+                <textarea class="form-control" id="correlAccount" th:field="*{correlAccount}" placeholder="XXXXXXXXXXXXXXXXXXXX"></textarea>
                 <small id="correlAccountHelp" class="form-text text-muted">Например: 30101810145250000974</small>
             </div>
         </div>
@@ -161,7 +161,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="bankId">БИК:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="bankId" th:field="*{bankId}" placeholder="BBBBBBBBB">
+                <textarea class="form-control" id="bankId" th:field="*{bankId}" placeholder="BBBBBBBBB"></textarea>
                 <small id="bankIdHelp" class="form-text text-muted">Например: 044525974</small>
             </div>
         </div>
@@ -169,7 +169,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="listenerCred">ФИО слушателя:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="listenerCred" th:field="*{listenerCred}" placeholder="Введите текст...">
+                <textarea class="form-control" id="listenerCred" th:field="*{listenerCred}" placeholder="Введите текст..."></textarea>
                 <small id="listenerCredHelp" class="form-text text-muted">Например: Иванов Иван Иванович</small>
             </div>
         </div>
@@ -177,7 +177,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="listenerCredRodPad">ФИО слушателя (в род. падеже):</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="listenerCredRodPad" th:field="*{listenerCredRodPad}" placeholder="Введите текст...">
+                <textarea class="form-control" id="listenerCredRodPad" th:field="*{listenerCredRodPad}" placeholder="Введите текст..."></textarea>
                 <small id="listenerCredRodPadHelp" class="form-text text-muted">Например: Иванова Ивана Ивановича</small>
             </div>
         </div>
@@ -185,7 +185,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="dateOfBirth">Дата рождения:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="dateOfBirth" th:field="*{dateOfBirth}" placeholder="ДД.ММ.ГГГГ">
+                <textarea class="form-control" id="dateOfBirth" th:field="*{dateOfBirth}" placeholder="ДД.ММ.ГГГГ"></textarea>
                 <small id="dateOfBirthHelp" class="form-text text-muted">Например: 14.03.1995</small>
             </div>
         </div>
@@ -193,7 +193,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="passSerNum">Серия/номер паспорта:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="passSerNum" th:field="*{passSerNum}" placeholder="XX XX XXXXXX">
+                <textarea class="form-control" id="passSerNum" th:field="*{passSerNum}" placeholder="XX XX XXXXXX"></textarea>
                 <small id="passSerNumHelp" class="form-text text-muted">Например: 20 08 101246</small>
             </div>
         </div>
@@ -215,7 +215,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="programType">По программе:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="programType" th:field="*{programType}" placeholder="Введите текст...">
+                <textarea class="form-control" id="programType" th:field="*{programType}" placeholder="Введите текст..."></textarea>
                 <small id="programTypeHelp" class="form-text text-muted">Например: профессиональной подготовки</small>
             </div>
         </div>
@@ -223,7 +223,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="programName">Программа:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="programName" th:field="*{programName}" placeholder="Введите текст без кавычек...">
+                <textarea class="form-control" id="programName" th:field="*{programName}" placeholder="Введите текст без кавычек..."></textarea>
                 <small id="programNameHelp" class="form-text text-muted">Например: Стоматология терапевтическая</small>
             </div>
         </div>
@@ -231,7 +231,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="latency">Длительность:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="latency" th:field="*{latency}" placeholder="NNN">
+                <textarea class="form-control" id="latency" th:field="*{latency}" placeholder="NNN"></textarea>
                 <small id="latencyHelp" class="form-text text-muted">Например: 506</small>
             </div>
         </div>
@@ -239,7 +239,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="cost">Стоимость:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="cost" th:field="*{cost}" placeholder="CCCCC">
+                <textarea class="form-control cost-class" id="cost" th:field="*{cost}" placeholder="CCCCC"></textarea>
                 <small id="costHelp" class="form-text text-muted">Например: 35000</small>
             </div>
         </div>
@@ -253,7 +253,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label date-class" for="billNumber">Счет №:</label>
             <div class="col-3">
-                <input type="text" class="form-control date-class" id="billNumber" th:field="*{billNumber}" placeholder="ДД-ММ-ГГ">
+                <textarea class="form-control date-class" id="billNumber" th:field="*{billNumber}" placeholder="ДД-ММ-ГГ"></textarea>
                 <small id="billNumberHelp" class="form-text text-muted">Например: 21-11-19</small>
             </div>
         </div>
@@ -261,7 +261,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label date-class" for="billDate">Счет от:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="billDate" th:field="*{billDate}">
+                <textarea class="form-control" id="billDate" th:field="*{billDate}"></textarea>
                 <small id="billDateHelp" class="form-text text-muted">Например: 25 ноября 2019 г.</small>
             </div>
         </div>
@@ -269,7 +269,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="billSum">Цена/Сумма/Итого:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="billSum" th:field="*{billSum}" placeholder="CC CCC, CC">
+                <textarea class="form-control cost-class" id="billSum" th:field="*{billSum}" placeholder="CC CCC, CC"></textarea>
                 <small id="billSumHelp" class="form-text text-muted">Например: 35 000,00</small>
             </div>
         </div>
@@ -277,7 +277,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label" for="billSumWords">Цена прописью:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="billSumWords" th:field="*{billSumWords}" placeholder="Введите текст...">
+                <textarea class="form-control" id="billSumWords" th:field="*{billSumWords}" placeholder="Введите текст..."></textarea>
                 <small id="billSumWordsHelp" class="form-text text-muted">Например: Тридцать пять тысяч рублей 00 копеек</small>
             </div>
         </div>
@@ -292,7 +292,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label date-class" for="actNumber">Акт №:</label>
             <div class="col-3">
-                <input type="text" class="form-control date-class" id="actNumber" th:field="*{actNumber}" placeholder="ДД-ММ-ГГ">
+                <textarea class="form-control date-class" id="actNumber" th:field="*{actNumber}" placeholder="ДД-ММ-ГГ"></textarea>
                 <small id="actNumberHelp" class="form-text text-muted">Например: 21-11-19</small>
             </div>
         </div>
@@ -300,7 +300,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label date-class" for="actDate">Акт от:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="actDate" th:field="*{actDate}">
+                <textarea class="form-control" id="actDate" th:field="*{actDate}"></textarea>
                 <small id="actDateHelp" class="form-text text-muted">Например: 25 ноября 2019 г.</small>
             </div>
         </div>
@@ -314,7 +314,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label date-class" for="dateOfForm">Дата заявления:</label>
             <div class="col-3">
-                <input type="text" class="form-control" id="dateOfForm" th:field="*{dateOfForm}">
+                <textarea  class="form-control" id="dateOfForm" th:field="*{dateOfForm}"></textarea>
                 <small id="dateOfFormHelp" class="form-text text-muted">Например: 25 ноября 2019 г.</small>
             </div>
         </div>

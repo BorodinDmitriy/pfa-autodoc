@@ -32,8 +32,29 @@ function updateSimilarDates(id) {
     })
 }
 
+function updateSimilarCosts(id) {
+    document.getElementById(id).addEventListener('blur', function() {
+        var text = this.value;
+        var elements = document.getElementsByClassName('cost-class');
+        for (var i = 0; i < elements.length; i++) {
+            var elementId = elements[i].getAttribute("id");
+            if ((elementId != null) && (elementId != id)) {
+                document.getElementById(elementId).value = text.replace(/\B(?=(\d{3})+(?!\d))/g, " ") + ", 00";
+            }
+        }
+    });
+}
 
-expandTextarea('basis');
-expandTextarea('passDelData');
-expandTextarea('regAddress');
+function expandTextAreas() {
+    var elemlist = document.getElementsByTagName('textarea');
+    for (var i = 0; i < elemlist.length; i++) {
+        var id = elemlist[i].getAttribute('id');
+        if ((id != null) & (id != undefined)) {
+            expandTextarea(id);
+        }
+    }
+}
+
+expandTextAreas();
 updateSimilarDates('dealNumber');
+updateSimilarCosts('cost');
