@@ -6,6 +6,7 @@ import com.autodoc.pfa.pfaautodoc.models.FileSubstitution;
 import com.autodoc.pfa.pfaautodoc.models.FileTemplate;
 import com.autodoc.pfa.pfaautodoc.models.IndividualFileSubstitution;
 import com.autodoc.pfa.pfaautodoc.services.IDocumentService;
+import com.autodoc.pfa.pfaautodoc.utils.DocxManipulator;
 import com.autodoc.pfa.pfaautodoc.utils.FileProcessor;
 import com.autodoc.pfa.pfaautodoc.utils.ObjectInspector;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -100,7 +101,7 @@ public class IDocumentServiceImpl  implements IDocumentService {
                     String dataFieldNameCopy = dataFromClientFields.get(j);
                     dataFieldNameCopy = dataFieldNameCopy.toLowerCase();
                     if (templateCopy.equals(dataFieldNameCopy)) {
-                        resultMap.put(templatesToSubstitute.get(i),
+                        resultMap.put("${" + templatesToSubstitute.get(i) + "}",
                                 ObjectInspector.getValueByField(fs, dataFromClientFields.get(j)));
                     }
                 }
@@ -111,13 +112,14 @@ public class IDocumentServiceImpl  implements IDocumentService {
 
     @Override
     public File getProcessedFiles(FileSubstitution fs, String fileType) {
+        DocxManipulator manipulator = new DocxManipulator();
         ArrayList<String> templates = getInitialTemplates(fs, fileType);
 
         // получение данных о заменяемых шаблонах - что на что заменить
         HashMap<String,String> substitutionMap = getSubstitutionData(fs,fileType);
-        if (substitutionMap.containsKey("%DEAL_NUMBER%")) {
-            substitutionMap.put("%DEAL_NUMBER_PTS%",
-                    substitutionMap.get("%DEAL_NUMBER%").replaceAll("-","."));
+        if (substitutionMap.containsKey("${%DEAL_NUMBER%}")) {
+            substitutionMap.put("${%DEAL_NUMBER_PTS%}",
+                    substitutionMap.get("${%DEAL_NUMBER%}").replaceAll("-","."));
         }
         if ((templates != null) && (templates.size() > 0)) {
             ArrayList<String> parsed_templates = new ArrayList<>();
@@ -127,7 +129,8 @@ public class IDocumentServiceImpl  implements IDocumentService {
                     zf = fileProcessor.modifyZipFile(zf); // remove string
                 }
 
-                parsed_templates.add(fileProcessor.modifyDocx(zf, substitutionMap));
+                // parsed_templates.add(fileProcessor.modifyDocx(zf, substitutionMap));
+                parsed_templates.add(DocxManipulator.generateDocx(zf,substitutionMap));
             }
             templates = parsed_templates;
 
