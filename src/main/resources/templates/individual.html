@@ -15,7 +15,7 @@
             </a>
             <h4>Создание документов для физического лица</h4>
         </div>
-        <form action="#" th:action="@{/documents/individual/}" th:object="${individualfilesubstitution}" method="POST">
+        <form class="needs-validation" action="#" th:action="@{/documents/individual/}" th:object="${individualfilesubstitution}" method="POST">
             <hr align="left" color="black">
             <div class="form-group row" >
                 <label class="col-6 form-label">Данные договора</label>
@@ -26,7 +26,7 @@
             <div class="form-group row" >
                 <label class="col-3 form-label date-class" for="dealNumber">Номер договора:</label>
                 <div class="col-3">
-                    <textarea class="form-control date-class" id="dealNumber" th:field="*{dealNumber}" placeholder="ДД-ММ-ГГ"></textarea>
+                    <textarea class="form-control date-class" id="dealNumber" th:field="*{dealNumber}" placeholder="ДД-ММ-ГГ" required></textarea>
                     <small id="dealNumberHelp" class="form-text text-muted">Например: 21-11-19</small>
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <div class="form-group row" >
                 <label class="col-3 form-label" for="dealDate">Дата договора:</label>
                 <div class="col-3">
-                    <textarea class="form-control" id="dealDate" th:field="*{dealDate}"></textarea>
+                    <textarea class="form-control" id="dealDate" th:field="*{dealDate}" required></textarea>
                     <small id="dealDateHelp" class="form-text text-muted">Например: 25 ноября 2019 г.</small>
                 </div>
             </div>
@@ -42,14 +42,14 @@
             <div class="form-group row" >
                 <label class="col-3 form-label" for="basis">На основании:</label>
                 <div class="col-3">
-                    <textarea class="form-control" id="basis" th:field="*{basis}" placeholder="Введите текст..."></textarea>
+                    <textarea class="form-control" id="basis" th:field="*{basis}" placeholder="Введите текст..." required></textarea>
                 </div>
             </div>
 
             <div class="form-group row" >
                 <label class="col-3 form-label" for="listenerCred">ФИО слушателя:</label>
                 <div class="col-3">
-                    <textarea class="form-control" id="listenerCred" th:field="*{listenerCred}" placeholder="Введите текст..."></textarea>
+                    <textarea class="form-control" id="listenerCred" th:field="*{listenerCred}" placeholder="Введите текст..." required></textarea>
                     <small id="listenerCredHelp" class="form-text text-muted">Например: Иванов Иван Иванович</small>
                 </div>
             </div>
@@ -57,7 +57,7 @@
             <div class="form-group row" >
                 <label class="col-3 form-label" for="listenerCredRodPad">ФИО слушателя (в род. падеже):</label>
                 <div class="col-3">
-                    <textarea class="form-control" id="listenerCredRodPad" th:field="*{listenerCredRodPad}" placeholder="Введите текст..."></textarea>
+                    <textarea class="form-control" id="listenerCredRodPad" th:field="*{listenerCredRodPad}" placeholder="Введите текст..." required></textarea>
                     <small id="listenerCredRodPadHelp" class="form-text text-muted">Например: Иванова Ивана Ивановича</small>
                 </div>
             </div>
@@ -65,7 +65,7 @@
             <div class="form-group row" >
                 <label class="col-3 form-label" for="dateOfBirth">Дата рождения:</label>
                 <div class="col-3">
-                    <textarea class="form-control" id="dateOfBirth" th:field="*{dateOfBirth}" placeholder="ДД.ММ.ГГГГ"></textarea>
+                    <textarea class="form-control" id="dateOfBirth" th:field="*{dateOfBirth}" placeholder="ДД.ММ.ГГГГ" required></textarea>
                     <small id="dateOfBirthHelp" class="form-text text-muted">Например: 14.03.1995</small>
                 </div>
             </div>
@@ -73,7 +73,7 @@
             <div class="form-group row" >
                 <label class="col-3 form-label" for="passSerNum">Серия/номер паспорта:</label>
                 <div class="col-3">
-                    <textarea class="form-control" id="passSerNum" th:field="*{passSerNum}" placeholder="XX XX XXXXXX"></textarea>
+                    <textarea class="form-control" id="passSerNum" th:field="*{passSerNum}" placeholder="XX XX XXXXXX" required></textarea>
                     <small id="passSerNumHelp" class="form-text text-muted">Например: 20 08 101246</small>
                 </div>
             </div>
@@ -81,21 +81,21 @@
             <div class="form-group row" >
                 <label class="col-3 form-label" for="passDelData">Дата выдачи/отделение:</label>
                 <div class="col-3">
-                    <textarea class="form-control" id="passDelData" th:field="*{passDelData}" placeholder="Введите текст..."></textarea>
+                    <textarea class="form-control" id="passDelData" th:field="*{passDelData}" placeholder="Введите текст..." required></textarea>
                 </div>
             </div>
 
             <div class="form-group row" >
                 <label class="col-3 form-label" for="regAddress">Адрес регистрации:</label>
                 <div class="col-3">
-                    <textarea class="form-control" id="regAddress" th:field="*{regAddress}" placeholder="Введите текст..."></textarea>
+                    <textarea class="form-control" id="regAddress" th:field="*{regAddress}" placeholder="Введите текст..." required></textarea>
                 </div>
             </div>
 
             <div class="form-group row" >
                 <label class="col-3 form-label" for="customer">Заказчик:</label>
                 <div class="col-3">
-                    <textarea class="form-control" id="customer" th:field="*{customer}" placeholder="Введите текст..."></textarea>
+                    <textarea class="form-control" id="customer" th:field="*{customer}" placeholder="Введите текст..." required></textarea>
                     <small id="customerHelp" class="form-text text-muted">Например: Иванов Иван Иванович</small>
                 </div>
             </div>
@@ -103,7 +103,7 @@
             <div class="form-group row" >
                 <label class="col-3 form-label" for="programType">По программе:</label>
                 <div class="col-3">
-                    <textarea class="form-control" id="programType" th:field="*{programType}" placeholder="Введите текст..."></textarea>
+                    <textarea class="form-control" id="programType" th:field="*{programType}" placeholder="Введите текст..." required></textarea>
                     <small id="programTypeHelp" class="form-text text-muted">Например: профессиональной подготовки</small>
                 </div>
             </div>
@@ -111,7 +111,7 @@
             <div class="form-group row" >
                 <label class="col-3 form-label" for="programName">Программа:</label>
                 <div class="col-3">
-                    <textarea class="form-control" id="programName" th:field="*{programName}" placeholder="Введите текст без кавычек..."></textarea>
+                    <textarea class="form-control" id="programName" th:field="*{programName}" placeholder="Введите текст без кавычек..." required></textarea>
                     <small id="programNameHelp" class="form-text text-muted">Например: Стоматология терапевтическая</small>
                 </div>
             </div>
@@ -119,7 +119,7 @@
             <div class="form-group row" >
                 <label class="col-3 form-label" for="latency">Длительность:</label>
                 <div class="col-3">
-                    <textarea class="form-control" id="latency" th:field="*{latency}" placeholder="NNN"></textarea>
+                    <textarea class="form-control" id="latency" th:field="*{latency}" placeholder="NNN" required></textarea>
                     <small id="latencyHelp" class="form-text text-muted">Например: 506</small>
                 </div>
             </div>
@@ -127,7 +127,7 @@
             <div class="form-group row" >
                 <label class="col-3 form-label" for="cost">Стоимость:</label>
                 <div class="col-3">
-                    <textarea class="form-control cost-class" id="cost" th:field="*{cost}" placeholder="CCCCC"></textarea>
+                    <textarea class="form-control cost-class" id="cost" th:field="*{cost}" placeholder="CCCCC" required></textarea>
                     <small id="costHelp" class="form-text text-muted">Например: 35000</small>
                 </div>
             </div>
@@ -141,7 +141,7 @@
             <div class="form-group row" >
                 <label class="col-3 form-label date-class" for="billNumber">Счет №:</label>
                 <div class="col-3">
-                    <textarea class="form-control date-class" id="billNumber" th:field="*{billNumber}" placeholder="ДД-ММ-ГГ"></textarea>
+                    <textarea class="form-control date-class" id="billNumber" th:field="*{billNumber}" placeholder="ДД-ММ-ГГ" required></textarea>
                     <small id="billNumberHelp" class="form-text text-muted">Например: 21-11-19</small>
                 </div>
             </div>
@@ -149,7 +149,7 @@
             <div class="form-group row" >
                 <label class="col-3 form-label date-class" for="billDate">Счет от:</label>
                 <div class="col-3">
-                    <textarea class="form-control" id="billDate" th:field="*{billDate}"></textarea>
+                    <textarea class="form-control" id="billDate" th:field="*{billDate}" required></textarea>
                     <small id="billDateHelp" class="form-text text-muted">Например: 25 ноября 2019 г.</small>
                 </div>
             </div>
@@ -157,7 +157,7 @@
             <div class="form-group row" >
                 <label class="col-3 form-label" for="billSum">Цена/Сумма/Итого:</label>
                 <div class="col-3">
-                    <textarea class="form-control cost-class" id="billSum" th:field="*{billSum}" placeholder="CC CCC, CC"></textarea>
+                    <textarea class="form-control cost-class" id="billSum" th:field="*{billSum}" placeholder="CC CCC, CC" required></textarea>
                     <small id="billSumHelp" class="form-text text-muted">Например: 35 000,00</small>
                 </div>
             </div>
@@ -165,7 +165,7 @@
             <div class="form-group row" >
                 <label class="col-3 form-label" for="billSumWords">Цена прописью:</label>
                 <div class="col-3">
-                    <textarea  class="form-control" id="billSumWords" th:field="*{billSumWords}" placeholder="Введите текст..."></textarea>
+                    <textarea  class="form-control" id="billSumWords" th:field="*{billSumWords}" placeholder="Введите текст..." required></textarea>
                     <small id="billSumWordsHelp" class="form-text text-muted">Например: Тридцать пять тысяч рублей 00 копеек</small>
                 </div>
             </div>
@@ -180,7 +180,7 @@
             <div class="form-group row" >
                 <label class="col-3 form-label date-class" for="actNumber">Акт №:</label>
                 <div class="col-3">
-                    <textarea class="form-control date-class" id="actNumber" th:field="*{actNumber}" placeholder="ДД-ММ-ГГ"></textarea>
+                    <textarea class="form-control date-class" id="actNumber" th:field="*{actNumber}" placeholder="ДД-ММ-ГГ" required></textarea>
                     <small id="actNumberHelp" class="form-text text-muted">Например: 21-11-19</small>
                 </div>
             </div>
@@ -188,7 +188,7 @@
             <div class="form-group row" >
                 <label class="col-3 form-label date-class" for="actDate">Акт от:</label>
                 <div class="col-3">
-                    <textarea class="form-control" id="actDate" th:field="*{actDate}"></textarea>
+                    <textarea class="form-control" id="actDate" th:field="*{actDate}" required></textarea>
                     <small id="actDateHelp" class="form-text text-muted">Например: 25 ноября 2019 г.</small>
                 </div>
             </div>
@@ -202,7 +202,7 @@
             <div class="form-group row" >
                 <label class="col-3 form-label date-class" for="dateOfForm">Дата заявления:</label>
                 <div class="col-3">
-                    <textarea class="form-control" id="dateOfForm" th:field="*{dateOfForm}"></textarea>
+                    <textarea class="form-control" id="dateOfForm" th:field="*{dateOfForm}" required></textarea>
                     <small id="dateOfFormHelp" class="form-text text-muted">Например: 25 ноября 2019 г.</small>
                 </div>
             </div>
@@ -247,6 +247,24 @@
 
             <button type="submit" class="btn btn-lg btn-primary btn-block">Создать документы</button>
         </form>
+
+        <div class="modal fade" id="failure-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content col-sm-8">
+                    <div class="modal-header">
+                        <div align="center">
+                            <h4 class="h4-modal-header">Ошибка в введенных данных.</h4>
+                            <h6 id="error-message" class="h6-modal-description">Проверьте поля ввода</h6>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <input type="button"  class="back-to-settings btn btn-lg btn-primary col-sm-11" value="Назад" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

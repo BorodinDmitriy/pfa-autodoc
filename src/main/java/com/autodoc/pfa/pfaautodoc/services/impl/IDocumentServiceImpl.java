@@ -124,12 +124,34 @@ public class IDocumentServiceImpl  implements IDocumentService {
 
         if (substitutionMap.containsKey("${%CUSTOMER%}")) {
             String[] splitCustomer = substitutionMap.get("${%CUSTOMER%}").split(" ");
-            String shortCustomer = splitCustomer[0].substring(0,1) + "." + splitCustomer[1].substring(0,1) + "." + splitCustomer[2];
+            String shortCustomer;
+            switch (splitCustomer.length) {
+                case 3:
+                    shortCustomer = splitCustomer[0].substring(0,1) + "." + splitCustomer[1].substring(0,1) + "." + splitCustomer[2];
+                    break;
+                case 2:
+                    shortCustomer = splitCustomer[0].substring(0,1) + "." + splitCustomer[1];
+                    break;
+                default:
+                    shortCustomer = substitutionMap.get("${%CUSTOMER%}");
+                    break;
+            }
             substitutionMap.put("${%CUSTOMER_SHORT%}", shortCustomer);
         }
         if (substitutionMap.containsKey("${%HEAD_CRED%}")) {
             String[] splitCustomer = substitutionMap.get("${%HEAD_CRED%}").split(" ");
-            String shortCustomer = splitCustomer[0].substring(0,1) + "." + splitCustomer[1].substring(0,1) + "." + splitCustomer[2];
+            String shortCustomer;
+            switch (splitCustomer.length) {
+                case 3:
+                    shortCustomer = splitCustomer[0].substring(0,1) + "." + splitCustomer[1].substring(0,1) + "." + splitCustomer[2];
+                    break;
+                case 2:
+                    shortCustomer = splitCustomer[0].substring(0,1) + "." + splitCustomer[1];
+                    break;
+                default:
+                    shortCustomer = substitutionMap.get("${%HEAD_CRED%}");
+                    break;
+            }
             substitutionMap.put("${%HEAD_CRED_SHORT%}", shortCustomer);
         }
         if ((templates != null) && (templates.size() > 0)) {
