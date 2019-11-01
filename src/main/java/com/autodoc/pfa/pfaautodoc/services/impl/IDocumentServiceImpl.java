@@ -121,6 +121,17 @@ public class IDocumentServiceImpl  implements IDocumentService {
             substitutionMap.put("${%DEAL_NUMBER_PTS%}",
                     substitutionMap.get("${%DEAL_NUMBER%}").replaceAll("-","."));
         }
+
+        if (substitutionMap.containsKey("${%CUSTOMER%}")) {
+            String[] splitCustomer = substitutionMap.get("${%CUSTOMER%}").split(" ");
+            String shortCustomer = splitCustomer[0].substring(0,1) + "." + splitCustomer[1].substring(0,1) + "." + splitCustomer[2];
+            substitutionMap.put("${%CUSTOMER_SHORT%}", shortCustomer);
+        }
+        if (substitutionMap.containsKey("${%HEAD_CRED%}")) {
+            String[] splitCustomer = substitutionMap.get("${%HEAD_CRED%}").split(" ");
+            String shortCustomer = splitCustomer[0].substring(0,1) + "." + splitCustomer[1].substring(0,1) + "." + splitCustomer[2];
+            substitutionMap.put("${%HEAD_CRED_SHORT%}", shortCustomer);
+        }
         if ((templates != null) && (templates.size() > 0)) {
             ArrayList<String> parsed_templates = new ArrayList<>();
             // замена полученных шаблонов на данные с формы
