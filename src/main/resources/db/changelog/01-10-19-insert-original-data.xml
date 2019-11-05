@@ -15,35 +15,35 @@
             <column name="type" value="individual"/>
             <column name="is_signed" value="false"/>
             <!--<column name="path" value="./src/main/resources/documents/individuals/"/> -->
-            <column name="path" value="/opt/pfaautodoc/individuals/"/>
+            <column name="path" value="/opt/pfaautodoc/unsigned/individuals/"/>
         </insert>
         <insert tableName="files">
             <column name="id" value="2"/>
             <column name="name" value="2_Schet_s_fiz_litsom.docx"/>
             <column name="type" value="individual"/>
             <column name="is_signed" value="false"/>
-            <column name="path" value="/opt/pfaautodoc/individuals/"/>
+            <column name="path" value="/opt/pfaautodoc/unsigned/individuals/"/>
         </insert>
         <insert tableName="files">
             <column name="id" value="3"/>
             <column name="name" value="3_Akt.docx"/>
             <column name="type" value="individual"/>
             <column name="is_signed" value="false"/>
-            <column name="path" value="/opt/pfaautodoc/individuals/"/>
+            <column name="path" value="/opt/pfaautodoc/unsigned/individuals/"/>
         </insert>
         <insert tableName="files">
             <column name="id" value="4"/>
             <column name="name" value="4_Soglasie_na_obrabotku_dannykh.docx"/>
             <column name="type" value="individual"/>
             <column name="is_signed" value="false"/>
-            <column name="path" value="/opt/pfaautodoc/individuals/"/>
+            <column name="path" value="/opt/pfaautodoc/unsigned/individuals/"/>
         </insert>
         <insert tableName="files">
             <column name="id" value="5"/>
             <column name="name" value="5_Forma.docx"/>
             <column name="type" value="individual"/>
             <column name="is_signed" value="false"/>
-            <column name="path" value="/opt/pfaautodoc/individuals/"/>
+            <column name="path" value="/opt/pfaautodoc/unsigned/individuals/"/>
         </insert>
 
         <insert tableName="files">
@@ -87,35 +87,35 @@
             <column name="name" value="1_Dogovor_s_yur_litsom.docx"/>
             <column name="type" value="legal"/>
             <column name="is_signed" value="false"/>
-            <column name="path" value="/opt/pfaautodoc/legals/"/>
+            <column name="path" value="/opt/pfaautodoc/unsigned/legals/"/>
         </insert>
         <insert tableName="files">
             <column name="id" value="12"/>
             <column name="name" value="2_Schet_s_yur_litsom.docx"/>
             <column name="type" value="legal"/>
             <column name="is_signed" value="false"/>
-            <column name="path" value="/opt/pfaautodoc/legals/"/>
+            <column name="path" value="/opt/pfaautodoc/unsigned/legals/"/>
         </insert>
         <insert tableName="files">
             <column name="id" value="13"/>
             <column name="name" value="3_Akt.docx"/>
             <column name="type" value="legal"/>
             <column name="is_signed" value="false"/>
-            <column name="path" value="/opt/pfaautodoc/legals/"/>
+            <column name="path" value="/opt/pfaautodoc/unsigned/legals/"/>
         </insert>
         <insert tableName="files">
             <column name="id" value="14"/>
             <column name="name" value="4_Soglasie_na_obrabotku_dannykh.docx"/>
             <column name="type" value="legal"/>
             <column name="is_signed" value="false"/>
-            <column name="path" value="/opt/pfaautodoc/legals/"/>
+            <column name="path" value="/opt/pfaautodoc/unsigned/legals/"/>
         </insert>
         <insert tableName="files">
             <column name="id" value="15"/>
             <column name="name" value="5_Forma.docx"/>
             <column name="type" value="legal"/>
             <column name="is_signed" value="false"/>
-            <column name="path" value="/opt/pfaautodoc/legals/"/>
+            <column name="path" value="/opt/pfaautodoc/unsigned/legals/"/>
         </insert>
 
         <insert tableName="files">

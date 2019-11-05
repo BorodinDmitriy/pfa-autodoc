@@ -27,14 +27,14 @@ services:
         source: /opt/pfaautodoc/images
         target: /opt/pfaautodoc/images
       - type: bind
-        source: /opt/pfaautodoc/individuals
-        target: /opt/pfaautodoc/individuals
+        source: /opt/pfaautodoc/unsigned/individuals
+        target: /opt/pfaautodoc/unsigned/individuals
      # - type: bind
      #   source: /opt/pfaautodoc/individuals/processed
      #   target: /opt/pfaautodoc/individuals/processed
       - type: bind
-        source: /opt/pfaautodoc/legals
-        target: /opt/pfaautodoc/legals
+        source: /opt/pfaautodoc/unsigned/legals
+        target: /opt/pfaautodoc/unsigned/legals
      # - type: bind
      #   source: /opt/pfaautodoc/legals/processed
      #   target: /opt/pfaautodoc/legals/processed
