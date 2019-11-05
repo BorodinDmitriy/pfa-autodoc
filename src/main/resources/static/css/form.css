@@ -33,3 +33,7 @@ hr {
     margin: 0 0 70px;
 }
 
+.form-control.is-invalid, .was-validated .form-control:invalid {
+    background-image: none;
+}
+
