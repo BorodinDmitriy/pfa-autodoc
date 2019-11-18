@@ -127,7 +127,7 @@ public class IDocumentServiceImpl  implements IDocumentService {
             String shortCustomer;
             switch (splitCustomer.length) {
                 case 3:
-                    shortCustomer = splitCustomer[2].substring(0,1) + "." + splitCustomer[1].substring(0,1) + "." + splitCustomer[0];
+                    shortCustomer = splitCustomer[1].substring(0,1) + "." + splitCustomer[2].substring(0,1) + "."  + splitCustomer[0];
                     break;
                 case 2:
                     shortCustomer = splitCustomer[1].substring(0,1) + "." + splitCustomer[0];
@@ -143,7 +143,7 @@ public class IDocumentServiceImpl  implements IDocumentService {
             String shortCustomer;
             switch (splitCustomer.length) {
                 case 3:
-                    shortCustomer = splitCustomer[2].substring(0,1) + "." + splitCustomer[1].substring(0,1) + "." + splitCustomer[0];
+                    shortCustomer = splitCustomer[1].substring(0,1) + "."  + splitCustomer[2].substring(0,1) + "." + splitCustomer[0];
                     break;
                 case 2:
                     shortCustomer = splitCustomer[1].substring(0,1) + "." + splitCustomer[0];
