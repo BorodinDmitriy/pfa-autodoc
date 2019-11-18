@@ -31,7 +31,7 @@ public class AdminController {
 
     private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
     private static String briefUploadDirectory = "/static/images/";
-    private long limitFileSize = 30000;
+    private long limitFileSize = 102400;
 
     final IAdminService iAdminService;
 
@@ -51,7 +51,7 @@ public class AdminController {
         }
 
         if (image.getSize() > limitFileSize) {
-            return new ResponseEntity("Image must be no more than 30000 bytes (300*100 pixels). Please, upload new image.", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity("Image must be no more than 100 KB (300*100 pixels). Please, upload new image.", HttpStatus.BAD_REQUEST);
         }
 
         if (!image.getOriginalFilename().substring(image.getOriginalFilename().indexOf('.') + 1).equals("png")) {
