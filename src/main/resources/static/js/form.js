@@ -59,7 +59,8 @@ function updateSimilarDates(id) {
                 document.getElementById("dealDate").value = formatter.format(nonLocDate);
                 document.getElementById("billDate").value = formatter.format(nonLocDate);
                 document.getElementById("actDate").value = formatter.format(nonLocDate);
-                document.getElementById("dateOfForm").value = formatter.format(nonLocDate);
+                if (document.getElementById("dateOfForm").value == '')
+                    document.getElementById("dateOfForm").value = formatter.format(nonLocDate);
             }
         }
     });
