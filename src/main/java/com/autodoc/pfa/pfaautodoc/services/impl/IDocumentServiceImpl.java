@@ -118,8 +118,8 @@ public class IDocumentServiceImpl  implements IDocumentService {
         // получение данных о заменяемых шаблонах - что на что заменить
         HashMap<String,String> substitutionMap = getSubstitutionData(fs,fileType);
         if (substitutionMap.containsKey("${%DEAL_NUMBER%}")) {
-            substitutionMap.put("${%DEAL_NUMBER_PTS%}",
-                    substitutionMap.get("${%DEAL_NUMBER%}").replaceAll("-","."));
+            String[] splitDealNumber = substitutionMap.get("${%DEAL_NUMBER%}").split("-");
+            substitutionMap.put("${%DEAL_NUMBER_PTS%}", splitDealNumber[0] + '.' + splitDealNumber[1] + '.' + splitDealNumber[2] + ' ');
         }
 
         if (substitutionMap.containsKey("${%CUSTOMER%}")) {
