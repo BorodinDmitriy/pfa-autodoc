@@ -45,6 +45,13 @@
             <column name="is_signed" value="false"/>
             <column name="path" value="/opt/pfaautodoc/unsigned/individuals/"/>
         </insert>
+        <insert tableName="files">
+            <column name="id" value="21"/>
+            <column name="name" value="6_Zayavka_APS.docx"/>
+            <column name="type" value="individual"/>
+            <column name="is_signed" value="false"/>
+            <column name="path" value="/opt/pfaautodoc/unsigned/individuals/"/>
+        </insert>
 
         <insert tableName="files">
             <column name="id" value="6"/>
@@ -77,6 +84,13 @@
         <insert tableName="files">
             <column name="id" value="10"/>
             <column name="name" value="5_Forma.docx"/>
+            <column name="type" value="individual"/>
+            <column name="is_signed" value="true"/>
+            <column name="path" value="/opt/pfaautodoc/signed/individuals/"/>
+        </insert>
+        <insert tableName="files">
+            <column name="id" value="22"/>
+            <column name="name" value="6_Zayavka_APS.docx"/>
             <column name="type" value="individual"/>
             <column name="is_signed" value="true"/>
             <column name="path" value="/opt/pfaautodoc/signed/individuals/"/>
@@ -117,6 +131,13 @@
             <column name="is_signed" value="false"/>
             <column name="path" value="/opt/pfaautodoc/unsigned/legals/"/>
         </insert>
+        <insert tableName="files">
+            <column name="id" value="23"/>
+            <column name="name" value="6_Zayavka_APS.docx"/>
+            <column name="type" value="legal"/>
+            <column name="is_signed" value="false"/>
+            <column name="path" value="/opt/pfaautodoc/unsigned/legals/"/>
+        </insert>
 
         <insert tableName="files">
             <column name="id" value="16"/>
@@ -149,6 +170,13 @@
         <insert tableName="files">
             <column name="id" value="20"/>
             <column name="name" value="5_Forma.docx"/>
+            <column name="type" value="legal"/>
+            <column name="is_signed" value="true"/>
+            <column name="path" value="/opt/pfaautodoc/signed/legals/"/>
+        </insert>
+        <insert tableName="files">
+            <column name="id" value="24"/>
+            <column name="name" value="6_Zayavka_APS.docx"/>
             <column name="type" value="legal"/>
             <column name="is_signed" value="true"/>
             <column name="path" value="/opt/pfaautodoc/signed/legals/"/>
@@ -330,6 +358,42 @@
             <column name="id" value="34"/>
             <column name="name" value="%HEAD_CRED_ROD_PAD%"/>
             <column name="type" value="legal"/>
+        </insert>
+
+        <insert tableName="substitutes">
+            <column name="id" value="35"/>
+            <column name="name" value="%LISTENER_CRED_DAT_PAD%"/>
+            <column name="type" value="complex"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="36"/>
+            <column name="name" value="%LISTENER_SPECIALITY%"/>
+            <column name="type" value="complex"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="37"/>
+            <column name="name" value="%LISTENER_EDUCATION_TYPE%"/>
+            <column name="type" value="complex"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="38"/>
+            <column name="name" value="%LISTENER_DIPLOMA_DATA%"/>
+            <column name="type" value="complex"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="39"/>
+            <column name="name" value="%LISTENER_DIPLOMA_DATE%"/>
+            <column name="type" value="complex"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="40"/>
+            <column name="name" value="%EDUCATION_START_TIME%"/>
+            <column name="type" value="complex"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="41"/>
+            <column name="name" value="%EDUCATION_FINISH_TIME%"/>
+            <column name="type" value="complex"/>
         </insert>
     </changeSet>
 </databaseChangeLog>

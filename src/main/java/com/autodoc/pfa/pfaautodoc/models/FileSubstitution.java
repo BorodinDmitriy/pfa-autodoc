@@ -9,7 +9,12 @@ public abstract class FileSubstitution {
     private String basis;
     private String listenerCred;
     private String listenerCredRodPad;
+    private String listenerCredDatPad;
     private String dateOfBirth;
+    private String listenerEducationType;
+    private String listenerDiplomaData;
+    private String listenerSpeciality;
+    private String listenerDiplomaDate;
     private String passSerNum;
     private String passDelData;
     private String regAddress;
@@ -17,6 +22,8 @@ public abstract class FileSubstitution {
     private String programName;
     private String latency;
     private String cost;
+    private String educationStartTime;
+    private String educationFinishTime;
     private String billNumber;
     private String billDate;
     private String billSum;
@@ -195,6 +202,62 @@ public abstract class FileSubstitution {
 
     public void setStampAndSign(String stampAndSign) {
         this.stampAndSign = stampAndSign;
+    }
+
+    public String getListenerCredDatPad() {
+        return listenerCredDatPad;
+    }
+
+    public void setListenerCredDatPad(String listenerCredDatPad) {
+        this.listenerCredDatPad = listenerCredDatPad;
+    }
+
+    public String getListenerEducationType() {
+        return listenerEducationType;
+    }
+
+    public void setListenerEducationType(String listenerEducationType) {
+        this.listenerEducationType = listenerEducationType;
+    }
+
+    public String getListenerDiplomaData() {
+        return listenerDiplomaData;
+    }
+
+    public void setListenerDiplomaData(String listenerDiplomaData) {
+        this.listenerDiplomaData = listenerDiplomaData;
+    }
+
+    public String getListenerSpeciality() {
+        return listenerSpeciality;
+    }
+
+    public void setListenerSpeciality(String listenerSpeciality) {
+        this.listenerSpeciality = listenerSpeciality;
+    }
+
+    public String getListenerDiplomaDate() {
+        return listenerDiplomaDate;
+    }
+
+    public void setListenerDiplomaDate(String listenerDiplomaDate) {
+        this.listenerDiplomaDate = listenerDiplomaDate;
+    }
+
+    public String getEducationStartTime() {
+        return educationStartTime;
+    }
+
+    public void setEducationStartTime(String educationStartTime) {
+        this.educationStartTime = educationStartTime;
+    }
+
+    public String getEducationFinishTime() {
+        return educationFinishTime;
+    }
+
+    public void setEducationFinishTime(String educationFinishTime) {
+        this.educationFinishTime = educationFinishTime;
     }
 
     public Boolean getNeedsStampAndSign() {

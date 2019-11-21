@@ -22,7 +22,6 @@
             </div>
             <hr align="left" color="black">
 
-
             <div class="form-group row" >
                 <label class="col-3 form-label date-class" for="dealNumber">Номер договора:</label>
                 <div class="col-3">
@@ -63,10 +62,57 @@
             </div>
 
             <div class="form-group row" >
+                <label class="col-3 form-label" for="listenerCredDatPad">ФИО слушателя (в дат. падеже):</label>
+                <div class="col-3">
+                    <textarea class="form-control" id="listenerCredDatPad" th:field="*{listenerCredDatPad}" placeholder="Введите текст..." required></textarea>
+                    <small id="listenerCredDatPadHelp" class="form-text text-muted">Например: Иванову Ивану Ивановичу</small>
+                </div>
+            </div>
+
+            <div class="form-group row" >
                 <label class="col-3 form-label" for="dateOfBirth">Дата рождения:</label>
                 <div class="col-3">
                     <textarea class="form-control" id="dateOfBirth" th:field="*{dateOfBirth}" placeholder="ДД.ММ.ГГГГ" required></textarea>
                     <small id="dateOfBirthHelp" class="form-text text-muted">Например: 14.03.1995</small>
+                </div>
+            </div>
+
+            <!-- listenerEducationType -->
+            <div class="form-group row" >
+                <label class="col-3 form-label" for="listenerEducationType">Тип образования:</label>
+                <div class="col-3">
+                    <textarea class="form-control" id="listenerEducationType" th:field="*{listenerEducationType}" placeholder="Введите текст..." required></textarea>
+                    <small id="listenerEducationTypeHelp" class="form-text text-muted">Например: высшее</small>
+                </div>
+            </div>
+
+            <!-- listenerEducationData -->
+
+            <div class="form-group row" >
+                <label class="col-3 form-label" for="listenerEducationData">Серия/номер диплома:</label>
+                <div class="col-3">
+                    <textarea class="form-control" id="listenerEducationData" th:field="*{listenerDiplomaData}" placeholder="ХХХ УУУУУУУ" required></textarea>
+                    <small id="listenerEducationDataHelp" class="form-text text-muted">Например: ДВС 000001</small>
+                </div>
+            </div>
+
+            <!-- listenerSpeciality -->
+
+            <div class="form-group row" >
+                <label class="col-3 form-label" for="listenerSpeciality">Специальность:</label>
+                <div class="col-3">
+                    <textarea class="form-control" id="listenerSpeciality" th:field="*{listenerSpeciality}" placeholder="Введите текст..." required></textarea>
+                    <small id="listenerSpecialityHelp" class="form-text text-muted">Например: Сестринское дело</small>
+                </div>
+            </div>
+
+            <!-- listenerDiplomaDate -->
+
+            <div class="form-group row" >
+                <label class="col-3 form-label" for="listenerEducationDate">Дата выдачи диплома:</label>
+                <div class="col-3">
+                    <textarea class="form-control" id="listenerEducationDate" th:field="*{listenerDiplomaDate}" placeholder="Введите дату..." required></textarea>
+                    <small id="listenerEducationDateHelp" class="form-text text-muted">Например: 27 июня 2000</small>
                 </div>
             </div>
 
@@ -121,6 +167,22 @@
                 <div class="col-3">
                     <textarea class="form-control" id="latency" th:field="*{latency}" placeholder="NNN" required></textarea>
                     <small id="latencyHelp" class="form-text text-muted">Например: 506</small>
+                </div>
+            </div>
+
+            <div class="form-group row" >
+                <label class="col-3 form-label" for="educationStartTime">Дата начала обучения:</label>
+                <div class="col-3">
+                    <textarea class="form-control" id="educationStartTime" th:field="*{educationStartTime}" placeholder="ДД.ММ.ГГГГ" required></textarea>
+                    <small id="educationStartTimeHelp" class="form-text text-muted">Например: 14.03.1995</small>
+                </div>
+            </div>
+
+            <div class="form-group row" >
+                <label class="col-3 form-label" for="educationFinishTime">Дата конца обучения:</label>
+                <div class="col-3">
+                    <textarea class="form-control" id="educationFinishTime" th:field="*{educationFinishTime}" placeholder="ДД.ММ.ГГГГ" required></textarea>
+                    <small id="educationFinishTimeHelp" class="form-text text-muted">Например: 14.03.1996</small>
                 </div>
             </div>
 
@@ -233,6 +295,10 @@
                 <div class="custom-control custom-checkbox mb-3">
                     <input type="checkbox" class="custom-control-input"  th:field=="*{filesToModify}" value="5" id="check5">
                     <label class="custom-control-label" for="check5">Форма заявления о допуске</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" class="custom-control-input"  th:field=="*{filesToModify}" value="6" id="check6">
+                    <label class="custom-control-label" for="check6">Заявка</label>
                 </div>
 
                 <div class="custom-control custom-checkbox mb-3">

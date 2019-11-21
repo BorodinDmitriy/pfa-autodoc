@@ -154,6 +154,11 @@ public class IDocumentServiceImpl  implements IDocumentService {
             }
             substitutionMap.put("${%HEAD_CRED_SHORT%}", shortCustomer);
         }
+
+        if (!substitutionMap.containsKey("${%ORG_NAME%}")) {
+            substitutionMap.put("${%ORG_NAME%}", "");
+        }
+
         if ((templates != null) && (templates.size() > 0)) {
             ArrayList<String> parsed_templates = new ArrayList<>();
             // замена полученных шаблонов на данные с формы
