@@ -3,6 +3,7 @@ package com.autodoc.pfa.pfaautodoc.models;
 public class LegalFileSubstitution extends FileSubstitution {
     private String orgName;
     private String inPersonOf;
+    private String inPersonOfImenPad;
     private String headCred;
     private String basedOn;
     private String factAddress;
@@ -135,5 +136,13 @@ public class LegalFileSubstitution extends FileSubstitution {
 
     public void setHeadCredRodPad(String headCredRodPad) {
         this.headCredRodPad = headCredRodPad;
+    }
+
+    public String getInPersonOfImenPad() {
+        return inPersonOfImenPad;
+    }
+
+    public void setInPersonOfImenPad(String inPersonOfImenPad) {
+        this.inPersonOfImenPad = inPersonOfImenPad;
     }
 }

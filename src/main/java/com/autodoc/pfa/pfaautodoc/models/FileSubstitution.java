@@ -31,6 +31,7 @@ public abstract class FileSubstitution {
     private String actNumber;
     private String actDate;
     private String dateOfForm;
+    private String socialId;
     private String stampAndSign;
     private ArrayList<String> filesToModify;
     private Boolean needsStampAndSign;
@@ -282,5 +283,13 @@ public abstract class FileSubstitution {
 
     public void setFilesToModify(ArrayList<String> filesToModify) {
         this.filesToModify = filesToModify;
+    }
+
+    public String getSocialId() {
+        return socialId;
+    }
+
+    public void setSocialId(String socialId) {
+        this.socialId = socialId;
     }
 }

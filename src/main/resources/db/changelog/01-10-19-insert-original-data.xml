@@ -395,5 +395,15 @@
             <column name="name" value="%EDUCATION_FINISH_TIME%"/>
             <column name="type" value="complex"/>
         </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="42"/>
+            <column name="name" value="%IN_PERSON_OF_IMEN_PAD%"/>
+            <column name="type" value="legal"/>
+        </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="43"/>
+            <column name="name" value="%SOCIAL_ID%"/>
+            <column name="type" value="complex"/>
+        </insert>
     </changeSet>
 </databaseChangeLog>

@@ -48,7 +48,15 @@
         </div>
 
         <div class="form-group row" >
-            <label class="col-3 form-label" for="inPersonOf">В лице:</label>
+            <label class="col-3 form-label" for="inPersonOfImenPad">В лице (имен.падеж):</label>
+            <div class="col-3">
+                <textarea class="form-control" id="inPersonOfImenPad" th:field="*{inPersonOfImenPad}" placeholder="Введите текст..." required></textarea>
+                <small id="inPersonOfImenPadHelp" class="form-text text-muted">Например: генеральный директор</small>
+            </div>
+        </div>
+
+        <div class="form-group row" >
+            <label class="col-3 form-label" for="inPersonOf">В лице (род. падеж):</label>
             <div class="col-3">
                 <textarea class="form-control" id="inPersonOf" th:field="*{inPersonOf}" placeholder="Введите текст..." required></textarea>
                 <small id="inPersonOfHelp" class="form-text text-muted">Например: генерального директора</small>
@@ -242,6 +250,14 @@
             <div class="col-3">
                 <textarea class="form-control" id="passSerNum" th:field="*{passSerNum}" placeholder="XX XX XXXXXX" required></textarea>
                 <small id="passSerNumHelp" class="form-text text-muted">Например: 20 08 101246</small>
+            </div>
+        </div>
+
+        <div class="form-group row" >
+            <label class="col-3 form-label" for="socialId">СНИЛС:</label>
+            <div class="col-3">
+                <textarea class="form-control" id="socialId" th:field="*{socialId}" placeholder="XXX-XXX-XXX YY" required></textarea>
+                <small id="socialIdHelp" class="form-text text-muted">Например: 156-782-93 14</small>
             </div>
         </div>
 

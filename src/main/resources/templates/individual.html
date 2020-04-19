@@ -125,6 +125,14 @@
             </div>
 
             <div class="form-group row" >
+                <label class="col-3 form-label" for="socialId">СНИЛС:</label>
+                <div class="col-3">
+                    <textarea class="form-control" id="socialId" th:field="*{socialId}" placeholder="XXX-XXX-XXX YY" required></textarea>
+                    <small id="socialIdHelp" class="form-text text-muted">Например: 156-782-93 14</small>
+                </div>
+            </div>
+
+            <div class="form-group row" >
                 <label class="col-3 form-label" for="passDelData">Дата выдачи/отделение:</label>
                 <div class="col-3">
                     <textarea class="form-control" id="passDelData" th:field="*{passDelData}" placeholder="Введите текст..." required></textarea>
