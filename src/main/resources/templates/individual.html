@@ -313,10 +313,10 @@
                     <input type="checkbox" class="custom-control-input"  th:field=="*{needsStampAndSign}" id="checkStampAndSign">
                     <label class="custom-control-label" for="checkStampAndSign">С печатью/подписью</label>
                 </div>
-                <!--<div class="custom-control custom-checkbox mb-3">-->
-                    <!--<input type="checkbox" class="custom-control-input" th:field=="*{needsConversionToPdf}" value="true" id="checkNeedConversion">-->
-                    <!--<label class="custom-control-label" for="checkNeedConversion">Преобразовать в *.pdf</label>-->
-                <!--</div>-->
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" class="custom-control-input" th:field=="*{needsConversionToPdf}" value="true" id="checkNeedConversion" disabled="disabled">
+                    <label class="custom-control-label" for="checkNeedConversion">Преобразовать в *.pdf</label>
+                </div>
             </fieldset>
 
             <button type="submit" class="btn btn-lg btn-primary btn-block">Создать документы</button>
