@@ -156,7 +156,7 @@ $(document).ready(function() {
 
 });
 expandTextAreas();
-updateSimilarDates('dealNumber');
-updateDateofForm('dealDate');
+//updateSimilarDates('dealNumber');
+//updateDateofForm('dealDate');
 updateSimilarCosts('cost');
 

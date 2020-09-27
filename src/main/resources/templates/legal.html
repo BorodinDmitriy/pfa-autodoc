@@ -393,7 +393,7 @@
         <div class="form-group row" >
             <label class="col-3 form-label date-class" for="dateOfForm">Дата заявления:</label>
             <div class="col-3">
-                <textarea  class="form-control" id="dateOfForm" th:field="*{dateOfForm}" required readonly></textarea>
+                <textarea  class="form-control" id="dateOfForm" th:field="*{dateOfForm}" required></textarea>
                 <small id="dateOfFormHelp" class="form-text text-muted">Например: 25 ноября 2019 г.</small>
             </div>
         </div>
@@ -434,10 +434,10 @@
                 <input type="checkbox" class="custom-control-input"  th:field=="*{needsStampAndSign}" id="checkStampAndSign">
                 <label class="custom-control-label" for="checkStampAndSign">С печатью/подписью</label>
             </div>
-            <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input" th:field=="*{needsConversionToPdf}" value="true" id="checkNeedConversion">
-                <label class="custom-control-label" for="checkNeedConversion">Преобразовать в *.pdf</label>
-            </div>
+            <!--<div class="custom-control custom-checkbox mb-3">-->
+                <!--<input type="checkbox" class="custom-control-input" th:field=="*{needsConversionToPdf}" value="true" id="checkNeedConversion">-->
+                <!--<label class="custom-control-label" for="checkNeedConversion">Преобразовать в *.pdf</label>-->
+            <!--</div>-->
         </fieldset>
 
         <button type="submit" class="btn btn-lg btn-primary btn-block">Создать документы</button>
