@@ -5,6 +5,7 @@ import java.util.List;
 
 public abstract class FileSubstitution {
     private String dealNumber;
+    private String dealNumberPts;
     private String dealDate;
     private String basis;
     private String listenerCred;
@@ -43,6 +44,14 @@ public abstract class FileSubstitution {
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getDealNumberPts() {
+        return dealNumberPts;
+    }
+
+    public void setDealNumberPts(String dealNumberPts) {
+        this.dealNumberPts = dealNumberPts;
     }
 
     public String getPassSerNum() {

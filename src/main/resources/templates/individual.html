@@ -39,6 +39,14 @@
             </div>
 
             <div class="form-group row" >
+                <label class="col-3 form-label date-class" for="dealNumberPts">Дата договора (с точками):</label>
+                <div class="col-3">
+                    <textarea class="form-control date-class" id="dealNumberPts" th:field="*{dealNumberPts}" placeholder="ДД.ММ.ГГ" required></textarea>
+                    <small id="dealNumberPtsHelp" class="form-text text-muted">Например: 21.11.19</small>
+                </div>
+            </div>
+
+            <div class="form-group row" >
                 <label class="col-3 form-label" for="basis">На основании:</label>
                 <div class="col-3">
                     <textarea class="form-control" id="basis" th:field="*{basis}" placeholder="Введите текст..." required></textarea>
