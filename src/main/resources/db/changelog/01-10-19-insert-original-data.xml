@@ -405,5 +405,10 @@
             <column name="name" value="%SOCIAL_ID%"/>
             <column name="type" value="complex"/>
         </insert>
+        <insert tableName="substitutes">
+            <column name="id" value="44"/>
+            <column name="name" value="%DEAL_NUMBER_PTS%"/>
+            <column name="type" value="complex"/>
+        </insert>
     </changeSet>
 </databaseChangeLog>
